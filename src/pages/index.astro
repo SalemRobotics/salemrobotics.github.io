@@ -1,0 +1,638 @@
+---
+import Layout from '@/layouts/Layout.astro';
+
+import fs from "node:fs";
+import { Image, Picture } from "astro:assets";
+
+import Schedule from "@/components/Schedule.astro";
+import blue_devil_svg from "@assets/bluedevil.svg";
+import logo_grayscale from "@assets/team_logo_grayscale.svg";
+import about_us_image from "@assets/about_us.png";
+import first_logo_light from "@assets/first/first_logo_light.png";
+import first_logo_dark from "@assets/first/first_logo_dark.png";
+import driveteam from "@assets/driveteam.png";
+import fll_camp_field from "@assets/fll_camp_field.png";
+import fll_camp_lab from "@assets/fll_camp_lab.png";
+import salembration from "@assets/salembration.png";
+import salem_scramble from "@assets/salem_scramble.png";
+---
+
+<Layout title="Salem Robotics" description="" selected="" fetches={[{ url: "https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap", rel: "stylesheet" }]} headerless={true}>
+	<header id="navbar">
+		<nav>
+			<div id="navbar-title">
+				<h1 class="devil-bauer">
+					The Blue Devils
+				</h1>
+			</div>
+			<ul id="navbar-links">
+				<li><a href="#outreach" class="oswald-text">Outreach</a></li>
+				<li><a href="#updates" class="oswald-text">Updates</a></li>
+				<li><a href="#resources" class="oswald-text">Resources</a></li>
+				<li><a href="#support-us" class="oswald-text">Support Us</a></li>
+			</ul>
+		</nav>
+	</header>
+	<section id="title-card">
+		<div id="title-card-container">
+			<h1 id="title-card-title" class="devil-bauer">FRC Team 6324</h1>
+			<p id="title-card-desc" class="oswald-text">
+                At team 6324 we aspire to promote STEM education help build and grow robotics programs, and connect
+				students and industry professionals in our community.
+			</p>
+		</div>
+		<Image src={blue_devil_svg} alt="The Blue Devils' logo" id="title-card-logo" aria-hidden="true" />
+	</section>
+	<section id="about-us">
+		<Picture 
+				src={about_us_image}
+				alt="A picture of the team at the 2025 Greater Boston District Event."
+				formats={["avif", "webp"]}
+				fallbackFormat="png"
+				inferSize={true}
+				layout="constrained"
+				id="about-us-picture"
+		/>
+		<div id="about-us-container">
+			<h2 id="about-us-header" class="devil-bauer">About Us</h2>
+			<p id="about-us-text" class="oswald-text">
+				We are team 6324 from Salem, New Hampshire. Our rookie season was in 2017, and from then on we have
+				worked to create a welcoming environment for anyone who wants to join the team. Part of having a
+				welcoming environment is being involved in the <em><abbr>FIRST</abbr><sup>&reg;</sup></em> and local
+				community. We value collaboration, gracious professionalism, and communication. One of our main goals
+				for the members of the team is to prepare them for occupations in the science industry by practicing our
+				values, as well as teaching them Scrum, graphic design and adobe, CAD and design, software development,
+				public relations, outreach, and manufacturing.
+			</p>
+		</div>
+	</section>
+	<section id="first">
+		<div id="first-desc-container">
+			<div>
+				<h2 id="first-desc-header" class="roboto-text"><em>FIRST</em></h2>
+				<p id="first-desc-text" class="oswald-text">
+					<em><abbr>FIRST</abbr></em> Robotics Competition (FRC) teams design, program, and
+					build a robot starting with a standard kit of parts and common set of rules to play in a themed
+					head-to-head challenge. Teams also build a brand, develop community partnerships for support, and
+					work to promote STEM in their local community.
+					<br />
+					<br />
+					For more information on FIRST, click <a href="https://firstinspires.org">here</a>
+				</p>
+			</div>
+			<Picture
+				src={first_logo_light}
+				alt="The official logo of FIRST"
+				formats={["avif", "webp"]}
+				fallbackFormat="png"
+				inferSize={true}
+				layout="full-width"
+				class="first-logo"
+				id="first-logo-light"
+				aria-hidden="true"
+			/>
+			<Picture
+				src={first_logo_dark}
+				alt="The official logo of FIRST"
+				formats={["avif", "webp"]}
+				fallbackFormat="png"
+				inferSize={true}
+				layout="full-width"
+				class="first-logo"
+				id="first-logo-dark"
+				aria-hidden="true"
+			/>
+		</div>
+		<div id="first-images-container">
+			<Picture
+				src={driveteam}
+				alt="A picture of our drive team at the New England District Championships"
+				formats={["avif", "webp"]}
+				fallbackFormat="png"
+				inferSize={true}
+				layout="constrained"
+				id="first-driveteam-image"
+				/>
+			<div id="game-video-container">
+				<h3 id="game-video-header" class="oswald-text">This year's game video:</h3>
+            	<iframe width="100%" height="100%" src="https://www.youtube-nocookie.com/embed/_fybREErgyM?si=QiXlz7O0tmGGlJ3m" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; fullscreen; gyroscope;" referrerpolicy="strict-origin-when-cross-origin" id="game-video"/>
+			</div>
+		</div>
+	</section>
+	<section id="events">
+		<div id="events-sched-info">
+			<Schedule id="events-schedule"/>
+			<div id="events-planned-container">
+				<h3 id="events-planned-header" class="oswald-text">Planned District Events</h3>
+				<ul id="events-planned" class="oswald-text">
+					<li>URI: March 20-21</li>
+					<li>UNH: March 28-29</li>
+					<li>New England DCMP: April 16-18</li>
+				</ul>
+			</div>
+		</div>
+		<div id="events-calendar-container">
+            <iframe src="https://calendar.google.com/calendar/embed?src=6da6819b6a706700984680c5424a3fb0e200bdf3d1829157f34c24c9a98d7ce0%40group.calendar.google.com&ctz=America%2FNew_York" style="border: 0" width="100%" height="100%" />
+		</div>
+	</section>
+	<section id="outreach">
+		<div id="outreach-desc-container">
+			<h2 id="outreach-desc-header" class="oswald-text">Outreach</h2>
+			<div id="outreach-desc-text" class="oswald-text">
+				<p>
+					We host outreach events to promote STEM and FIRST values in our community, allowing us to show what
+					we do, and attract new team members and community partners. Previously, we have attended events such
+					as:
+				</p>
+				<ul id="outreach-events-list">
+					<li>Salem Scramble</li>
+					<li>Salembration</li>
+					<li>Our FLL summer camp</li>
+					<li>Salem Holiday Parade</li>
+					<li>Cars, Robots & Coffee</li>
+					<li>Woodbury Olympics</li>
+				</ul>
+			</div>
+			<Picture src={salem_scramble} alt="" id="outreach-salem-scramble-image" />
+		</div>
+		<div id="outreach-images">
+			<Picture src={salembration} alt="" id="outreach-salembration-image" />
+			<Picture src={fll_camp_field} alt="" id="outreach-fll-camp-field-image" />
+		</div>
+		<div id="outreach-fll">
+			<Picture src={fll_camp_lab} alt="" id="outreach-fll-camp-lab-image" />
+			<div id="outreach-fll-container">
+				<h3 id="outreach-fll-header" class="oswald-text">FLL summer camp</h3>
+				<p id="outreach-fll-text" class="oswald-text">
+					FIRST Lego League Summer Camp is a community outreach event that allows us to get involved with
+					elementary level students and introduce them to STEM.
+				</p>
+			</div>
+		</div>
+	</section>
+	<!--<section id="sponsors">-->
+	<!--	<h2>Current Community Partners for 2026:</h2>-->
+	<!--	<div>-->
+	<!--		&lt;!&ndash; TODO: images here &ndash;&gt;-->
+	<!--	</div>-->
+	<!--	<p>Team 6324 is very thankful for our community partners and donations to the team!</p>-->
+	<!--</section>-->
+	<!--<section id="donations">-->
+	<!--	<div>-->
+	<!--		<div>-->
+	<!--			<p>If you or your business would like to donate to the team, please reach out to us at:</p>-->
+	<!--		</div>-->
+	<!--		<div>-->
+	<!--			&lt;!&ndash; TODO: venmo QR code &ndash;&gt;-->
+	<!--		</div>-->
+	<!--	</div>-->
+	<!--	<div>-->
+	<!--		&lt;!&ndash; TODO: sponsor tiers &ndash;&gt;-->
+	<!--	</div>-->
+	<!--</section>-->
+	<!--<section id="updates">-->
+	<!--	<h2>Updates</h2>-->
+	<!--	<div>-->
+	<!--		<div>-->
+	<!--			<p>You can find our monthly newsletter <a href="/newsletter">here</a></p>-->
+	<!--			<div>-->
+	<!--				&lt;!&ndash; TODO: parade img &ndash;&gt;-->
+	<!--			</div>-->
+	<!--		</div>-->
+	<!--	</div>-->
+	<!--</section>-->
+	<footer id="footer">
+		<div id="footer-top">
+			<h2 class="devil-bauer">Contact Us</h2>
+		</div>
+		<div id="footer-bottom">
+			<div id="footer-logo-container">
+				<Image src={logo_grayscale} alt="" inferSize={true} id="footer-logo"/>
+			</div>
+			<div id="footer-contact" class="oswald-text">
+				<div id="contacts-email">
+					<p><a href="mailto:john.seeman@nhsau57.org">john.seeman@nhsau57.org</a></p>
+					<p><a href="mailto:brennan.macaig@gmail.com">brennan.macaig@gmail.com</a></p>
+					<p><a href="mailto:friendsofshsrobotics@gmail.com">friendsofshsrobotics@gmail.com</a></p>
+				</div>
+				<div id="footer-links">
+					<!-- Instagram Logo -->
+					<a href="https://www.facebook.com/salemrobotics">
+						<svg width="800px" height="800px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+							<path fill-rule="evenodd" clip-rule="evenodd" d="M12 18C15.3137 18 18 15.3137 18 12C18 8.68629 15.3137 6 12 6C8.68629 6 6 8.68629 6 12C6 15.3137 8.68629 18 12 18ZM12 16C14.2091 16 16 14.2091 16 12C16 9.79086 14.2091 8 12 8C9.79086 8 8 9.79086 8 12C8 14.2091 9.79086 16 12 16Z" fill="white"/>
+							<path d="M18 5C17.4477 5 17 5.44772 17 6C17 6.55228 17.4477 7 18 7C18.5523 7 19 6.55228 19 6C19 5.44772 18.5523 5 18 5Z" fill="white"/>
+							<path fill-rule="evenodd" clip-rule="evenodd" d="M1.65396 4.27606C1 5.55953 1 7.23969 1 10.6V13.4C1 16.7603 1 18.4405 1.65396 19.7239C2.2292 20.8529 3.14708 21.7708 4.27606 22.346C5.55953 23 7.23969 23 10.6 23H13.4C16.7603 23 18.4405 23 19.7239 22.346C20.8529 21.7708 21.7708 20.8529 22.346 19.7239C23 18.4405 23 16.7603 23 13.4V10.6C23 7.23969 23 5.55953 22.346 4.27606C21.7708 3.14708 20.8529 2.2292 19.7239 1.65396C18.4405 1 16.7603 1 13.4 1H10.6C7.23969 1 5.55953 1 4.27606 1.65396C3.14708 2.2292 2.2292 3.14708 1.65396 4.27606ZM13.4 3H10.6C8.88684 3 7.72225 3.00156 6.82208 3.0751C5.94524 3.14674 5.49684 3.27659 5.18404 3.43597C4.43139 3.81947 3.81947 4.43139 3.43597 5.18404C3.27659 5.49684 3.14674 5.94524 3.0751 6.82208C3.00156 7.72225 3 8.88684 3 10.6V13.4C3 15.1132 3.00156 16.2777 3.0751 17.1779C3.14674 18.0548 3.27659 18.5032 3.43597 18.816C3.81947 19.5686 4.43139 20.1805 5.18404 20.564C5.49684 20.7234 5.94524 20.8533 6.82208 20.9249C7.72225 20.9984 8.88684 21 10.6 21H13.4C15.1132 21 16.2777 20.9984 17.1779 20.9249C18.0548 20.8533 18.5032 20.7234 18.816 20.564C19.5686 20.1805 20.1805 19.5686 20.564 18.816C20.7234 18.5032 20.8533 18.0548 20.9249 17.1779C20.9984 16.2777 21 15.1132 21 13.4V10.6C21 8.88684 20.9984 7.72225 20.9249 6.82208C20.8533 5.94524 20.7234 5.49684 20.564 5.18404C20.1805 4.43139 19.5686 3.81947 18.816 3.43597C18.5032 3.27659 18.0548 3.14674 17.1779 3.0751C16.2777 3.00156 15.1132 3 13.4 3Z" fill="white"/>
+						</svg>
+					</a>
+					<!-- Facebook Logo -->
+					<a href="https://www.instagram.org/salemrobotics" target="_blank">
+						<svg fill="white" width="800px" height="800px" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+							<path d="M12 2.03998C6.5 2.03998 2 6.52998 2 12.06C2 17.06 5.66 21.21 10.44 21.96V14.96H7.9V12.06H10.44V9.84998C10.44 7.33998 11.93 5.95998 14.22 5.95998C15.31 5.95998 16.45 6.14998 16.45 6.14998V8.61998H15.19C13.95 8.61998 13.56 9.38998 13.56 10.18V12.06H16.34L15.89 14.96H13.56V21.96C15.9164 21.5878 18.0622 20.3855 19.6099 18.57C21.1576 16.7546 22.0054 14.4456 22 12.06C22 6.52998 17.5 2.03998 12 2.03998Z"/>
+						</svg>
+					</a>
+					<!-- GitHub Logo -->
+					<a href="https://github.com/SalemRobotics/" target="_blank">
+						<svg width="800px" height="800px" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+							<g stroke="none" fill="none" fill-rule="evenodd">
+								<g transform="translate(-140.000000, -7559.000000)" fill="white">
+									<g transform="translate(56.000000, 160.000000)">
+										<path d="M94,7399 C99.523,7399 104,7403.59 104,7409.253 C104,7413.782 101.138,7417.624 97.167,7418.981 C96.66,7419.082 96.48,7418.762 96.48,7418.489 C96.48,7418.151 96.492,7417.047 96.492,7415.675 C96.492,7414.719 96.172,7414.095 95.813,7413.777 C98.04,7413.523 100.38,7412.656 100.38,7408.718 C100.38,7407.598 99.992,7406.684 99.35,7405.966 C99.454,7405.707 99.797,7404.664 99.252,7403.252 C99.252,7403.252 98.414,7402.977 96.505,7404.303 C95.706,7404.076 94.85,7403.962 94,7403.958 C93.15,7403.962 92.295,7404.076 91.497,7404.303 C89.586,7402.977 88.746,7403.252 88.746,7403.252 C88.203,7404.664 88.546,7405.707 88.649,7405.966 C88.01,7406.684 87.619,7407.598 87.619,7408.718 C87.619,7412.646 89.954,7413.526 92.175,7413.785 C91.889,7414.041 91.63,7414.493 91.54,7415.156 C90.97,7415.418 89.522,7415.871 88.63,7414.304 C88.63,7414.304 88.101,7413.319 87.097,7413.247 C87.097,7413.247 86.122,7413.234 87.029,7413.87 C87.029,7413.87 87.684,7414.185 88.139,7415.37 C88.139,7415.37 88.726,7417.2 91.508,7416.58 C91.513,7417.437 91.522,7418.245 91.522,7418.489 C91.522,7418.76 91.338,7419.077 90.839,7418.982 C86.865,7417.627 84,7413.783 84,7409.253 C84,7403.59 88.478,7399 94,7399">
+
+										</path>
+									</g>
+								</g>
+							</g>
+						</svg>
+					</a>
+				</div>
+			</div>
+			<div id="footer-mailing" class="oswald-text">
+				<p>Mailing Address:</p>
+				<p>Attn: FIRST Robotics</p>
+				<p>44 Geremonty Drive,</p>
+				<p>Salem, New Hampshire 03079</p>
+			</div>
+		</div>
+	</footer>
+	<style is:inline>
+		html {
+			scroll-behavior: smooth;
+		}
+
+		#navbar {
+			width: 100%;
+			background-color: #656565;
+			color: var(--text);
+
+			& > nav {
+                width: 100%;
+                display: flex;
+                flex-direction: row;
+			}
+
+			& #navbar-title {
+				width: 30%;
+				color: var(--bd-color);
+
+				& > h1 {
+					width: 100%;
+					text-align: center;
+				}
+			}
+
+			& #navbar-links {
+                width: 70%;
+                display: flex;
+                justify-content: space-around;
+                flex-direction: row;
+                list-style: none;
+
+				& li {
+					display: flex;
+					align-items: center;
+
+					& > a {
+						font-size: 1.8rem;
+						font-weight: 600;
+
+                        color: var(--text);
+                        text-decoration: none;
+					}
+				}
+			}
+		}
+
+		#title-card {
+			position: relative;
+			width: 100%;
+			height: 75vh;
+			display: flex;
+			flex-direction: row;
+			flex-wrap: nowrap;
+			overflow: hidden;
+
+			& #title-card-container {
+				width: 70vw;
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+				justify-content: center;
+			}
+			& #title-card-title {
+				font-size: 4.5rem;
+			}
+
+			& #title-card-desc {
+				width: 75%;
+				font-size: 1.5rem;
+			}
+
+			& #title-card-logo {
+				position: absolute;
+				top: 0;
+				right: 0;
+				width: 50vw;
+				height: auto;
+				transform: translate(30%, -15%);
+			}
+		}
+
+		#about-us {
+			display: flex;
+			flex-direction: row;
+			justify-content: space-around;
+
+			& #about-us-picture {
+				width: 50vw;
+				height: auto;
+				border-radius: 5px;
+			}
+
+			& #about-us-container {
+				width: 40vw;
+			}
+
+			& #about-us-header {
+				width: 100%;
+				text-align: center;
+				font-size: 2rem;
+			}
+
+			& #about-us-text {
+				font-size: 1.125rem;
+			}
+		}
+
+		#first {
+			display: flex;
+			flex-direction: row;
+			justify-content: space-around;
+			height: 80vh;
+
+			& #first-desc-container {
+				width: 45vw;
+				height: 100%;
+				display: flex;
+				flex-direction: column;
+				justify-content: space-around;
+				align-content: center;
+			}
+
+			& #first-desc-header {
+				font-size: 5rem;
+			}
+
+			& #first-desc-text {
+				font-size: 1.25rem;
+				font-weight: 400;
+			}
+
+			& .first-logo {
+				width: 30vw;
+				height: auto;
+			}
+
+            & #first-images-container {
+                width: 40vw;
+				display: flex;
+				flex-direction: column;
+				justify-content: space-between;
+				align-items: center;
+            }
+
+			& #first-driveteam-image {
+				width: 30vw;
+				height: auto;
+				transform: translateY(-5vh);
+				border-radius: 5px;
+			}
+
+			& #game-video-container {
+				width: 30vw;
+				height: auto;
+			}
+
+			& #game-video-header {
+				font-size: 1.25rem;
+			}
+
+			& #game-video {
+                border: none;
+				border-radius: 5px;
+            }
+		}
+
+		@media (prefers-color-scheme: light) {
+			#first-logo-dark {
+				display: none;
+			}
+		}
+
+		@media (prefers-color-scheme: dark) {
+			#first-logo-light {
+				display: none;
+			}
+		}
+
+		#events {
+			margin-top: 12.5vh;
+			display: flex;
+			flex-direction: row-reverse;
+			justify-content: space-evenly;
+
+			& #events-sched-info {
+				width: 35vw;
+				display: flex;
+				flex-direction: column;
+				justify-content: space-around;
+			}
+
+			& #events-planned-container {
+				width: 100%;
+			}
+
+			& #events-planned-header {
+				width: 100%;
+				text-align: center;
+				font-size: 1.75rem;
+				font-weight: 600;
+			}
+
+			& #events-planned {
+				font-size: 1.125rem;
+				font-weight: 600;
+			}
+
+			& #events-calendar-container {
+				width: 50vw;
+				height: 70vh;
+			}
+		}
+
+		#outreach {
+			margin-top: 5vh;
+			display: flex;
+			flex-direction: row-reverse;
+			justify-content: space-evenly;
+
+			& #outreach-desc-container {
+				width: 30vw;
+			}
+
+			& #outreach-desc-header {
+				font-size: 1.75rem;
+				transform: translateX(-1.5vw);
+			}
+
+			& #outreach-desc-text {
+				font-size: 1.125rem;
+			}
+
+			& #outreach-events-list {
+				list-style: none;
+			}
+			& #outreach-events-list li::before {
+				content: "- ";
+			}
+
+			& #outreach-salem-scramble-image {
+				width: 25vw;
+				height: auto;
+			}
+
+			& #outreach-images {
+				display: flex;
+				flex-direction: column;
+				justify-content: space-evenly;
+				align-items: center;
+				width: 25vw;
+			}
+
+			& #outreach-salembration-image {
+				width: 20vw;
+				height: 20vw;
+				object-fit: cover;
+				object-position: center;
+				border-radius: 50%;
+				transform: translate(-5vw, 3vh);
+			}
+
+			& #outreach-fll-camp-field-image {
+				width: 15vw;
+				height: 15vw;
+				object-fit: cover;
+				object-position: center;
+				border-radius: 100%;
+				transform: translateX(2.5vw);
+			}
+
+			& #outreach-fll {
+				width: 30vw;
+				display: flex;
+				flex-direction: column;
+				justify-content: space-evenly;
+			}
+
+			& #outreach-fll-camp-lab-image {
+				width: 27.5vw;
+				height: auto;
+			}
+
+			& #outreach-fll-container {
+
+			}
+
+			& #outreach-fll-header {
+				font-size: 1.75rem;
+			}
+
+			& #outreach-fll-text {
+				font-size: 1.125rem;
+				transform: translateX(1.5vw);
+			}
+		}
+
+		#leadership {
+
+		}
+
+		#sponsors-list {
+
+		}
+
+		#donations {
+
+		}
+
+		#updates {
+
+		}
+
+		#footer {
+			background-color: #545454;
+			min-height: 50vh;
+			color: black;
+
+			& #footer-top {
+                width: 100%;
+
+				& h2 {
+					padding-block: 2.5vh;
+					font-size: 2rem;
+					width: 100%;
+					text-align: center;
+				}
+            }
+
+			& #footer-bottom {
+				align-items: center;
+				display: flex;
+				flex-direction: row;
+				justify-content: space-around;
+			}
+
+            & #footer-logo-container {
+                width: fit-content;
+                height: fit-content;
+            }
+
+            & #footer-logo {
+                width: 20vw;
+                height: auto;
+            }
+
+			& #footer-contact {
+				width: 30vw;
+				height: fit-content;
+				display: block;
+			}
+
+			& #contacts-email {
+				font-size: 1.125rem;
+				& p a {
+					color: black;
+				}
+			}
+
+			& #footer-links {
+				width: 100%;
+				display: flex;
+				flex-direction: row;
+				justify-content: center;
+				align-items: center;
+
+				& svg {
+					padding: 20px;
+					width: 5vw;
+					height: auto;
+				}
+			}
+
+			& #footer-mailing {
+				font-size: 1.125rem;
+				font-weight: 500;
+				color: black;
+			}
+		}
+	</style>
+</Layout>

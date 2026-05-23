@@ -10,13 +10,13 @@ export default defineConfig({
     devToolbar: {
         enabled: false,
     },
-    server: {
-        host: true,
-        port: 6324
-    },
     build: {
         concurrency: cpus().length,
         format: "file"
+    },
+    server: {
+        host: true,
+        port: 6324
     },
     vite: {
         build: {

@@ -17,7 +17,7 @@ import salembration from "@assets/salembration.png";
 import salem_scramble from "@assets/salem_scramble.png";
 ---
 
-<Layout title="Salem Robotics" description="" selected="" fetches={[{ url: "https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap", rel: "stylesheet" }]} headerless={true}>
+<Layout title="Salem Robotics" description="The official website for FRC team 6324." selected="" fetches={[{ url: "https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap", rel: "stylesheet" }]} headerless={true}>
 	<header id="navbar">
 		<nav>
 			<div id="navbar-title">
@@ -37,7 +37,7 @@ import salem_scramble from "@assets/salem_scramble.png";
 		<div id="title-card-container">
 			<h1 id="title-card-title" class="devil-bauer">FRC Team 6324</h1>
 			<p id="title-card-desc" class="oswald-text">
-                At team 6324 we aspire to promote STEM education help build and grow robotics programs, and connect
+                At team 6324 we aspire to promote STEM education, help build and grow robotics programs, and connect
 				students and industry professionals in our community.
 			</p>
 		</div>
@@ -54,7 +54,7 @@ import salem_scramble from "@assets/salem_scramble.png";
 				id="about-us-picture"
 		/>
 		<div id="about-us-container">
-			<h2 id="about-us-header" class="devil-bauer">About Us</h2>
+			<h2 id="about-us-header" class="oswald-text">About Us</h2>
 			<p id="about-us-text" class="oswald-text">
 				We are team 6324 from Salem, New Hampshire. Our rookie season was in 2017, and from then on we have
 				worked to create a welcoming environment for anyone who wants to join the team. Part of having a
@@ -68,10 +68,10 @@ import salem_scramble from "@assets/salem_scramble.png";
 	</section>
 	<section id="first">
 		<div id="first-desc-container">
-			<div>
-				<h2 id="first-desc-header" class="roboto-text"><em>FIRST</em></h2>
+			<div id="first-desc-text-container">
+				<h2 id="first-desc-header" class="oswald-text"><em>FIRST</em></h2>
 				<p id="first-desc-text" class="oswald-text">
-					<em><abbr>FIRST</abbr></em> Robotics Competition (FRC) teams design, program, and
+					<em><abbr>FIRST</abbr></em> &nbsp; Robotics Competition (FRC) teams design, program, and
 					build a robot starting with a standard kit of parts and common set of rules to play in a themed
 					head-to-head challenge. Teams also build a brand, develop community partnerships for support, and
 					work to promote STEM in their local community.
@@ -132,26 +132,28 @@ import salem_scramble from "@assets/salem_scramble.png";
 			</div>
 		</div>
 		<div id="events-calendar-container">
-            <iframe src="https://calendar.google.com/calendar/embed?src=6da6819b6a706700984680c5424a3fb0e200bdf3d1829157f34c24c9a98d7ce0%40group.calendar.google.com&ctz=America%2FNew_York" style="border: 0" width="100%" height="100%" />
+            <iframe src="https://calendar.google.com/calendar/embed?src=ea85c994e6f57af1dcf4ee4034ac650009c357125bdb8d1c423e6e6e7a6041e0%40group.calendar.google.com&ctz=America%2FNew_York" style="border: 0" width="100%" height="100%" />
 		</div>
 	</section>
 	<section id="outreach">
 		<div id="outreach-desc-container">
-			<h2 id="outreach-desc-header" class="oswald-text">Outreach</h2>
-			<div id="outreach-desc-text" class="oswald-text">
-				<p>
-					We host outreach events to promote STEM and FIRST values in our community, allowing us to show what
-					we do, and attract new team members and community partners. Previously, we have attended events such
-					as:
-				</p>
-				<ul id="outreach-events-list">
-					<li>Salem Scramble</li>
-					<li>Salembration</li>
-					<li>Our FLL summer camp</li>
-					<li>Salem Holiday Parade</li>
-					<li>Cars, Robots & Coffee</li>
-					<li>Woodbury Olympics</li>
-				</ul>
+			<div>
+				<h2 id="outreach-desc-header" class="oswald-text">Outreach</h2>
+				<div id="outreach-desc-text" class="oswald-text">
+					<p>
+						We host outreach events to promote STEM and FIRST values in our community, allowing us to show what
+						we do, and attract new team members and community partners. Previously, we have attended events such
+						as:
+					</p>
+					<ul id="outreach-events-list">
+						<li>Salem Scramble</li>
+						<li>Salembration</li>
+						<li>Our FLL summer camp</li>
+						<li>Salem Holiday Parade</li>
+						<li>Cars, Robots & Coffee</li>
+						<li>Woodbury Olympics</li>
+					</ul>
+				</div>
 			</div>
 			<Picture src={salem_scramble} alt="" id="outreach-salem-scramble-image" />
 		</div>
@@ -170,37 +172,6 @@ import salem_scramble from "@assets/salem_scramble.png";
 			</div>
 		</div>
 	</section>
-	<!--<section id="sponsors">-->
-	<!--	<h2>Current Community Partners for 2026:</h2>-->
-	<!--	<div>-->
-	<!--		&lt;!&ndash; TODO: images here &ndash;&gt;-->
-	<!--	</div>-->
-	<!--	<p>Team 6324 is very thankful for our community partners and donations to the team!</p>-->
-	<!--</section>-->
-	<!--<section id="donations">-->
-	<!--	<div>-->
-	<!--		<div>-->
-	<!--			<p>If you or your business would like to donate to the team, please reach out to us at:</p>-->
-	<!--		</div>-->
-	<!--		<div>-->
-	<!--			&lt;!&ndash; TODO: venmo QR code &ndash;&gt;-->
-	<!--		</div>-->
-	<!--	</div>-->
-	<!--	<div>-->
-	<!--		&lt;!&ndash; TODO: sponsor tiers &ndash;&gt;-->
-	<!--	</div>-->
-	<!--</section>-->
-	<!--<section id="updates">-->
-	<!--	<h2>Updates</h2>-->
-	<!--	<div>-->
-	<!--		<div>-->
-	<!--			<p>You can find our monthly newsletter <a href="/newsletter">here</a></p>-->
-	<!--			<div>-->
-	<!--				&lt;!&ndash; TODO: parade img &ndash;&gt;-->
-	<!--			</div>-->
-	<!--		</div>-->
-	<!--	</div>-->
-	<!--</section>-->
 	<footer id="footer">
 		<div id="footer-top">
 			<h2 class="devil-bauer">Contact Us</h2>
@@ -217,7 +188,7 @@ import salem_scramble from "@assets/salem_scramble.png";
 				</div>
 				<div id="footer-links">
 					<!-- Instagram Logo -->
-					<a href="https://www.facebook.com/salemrobotics">
+					<a href="https://www.instagram.org/salemrobotics">
 						<svg width="800px" height="800px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
 							<path fill-rule="evenodd" clip-rule="evenodd" d="M12 18C15.3137 18 18 15.3137 18 12C18 8.68629 15.3137 6 12 6C8.68629 6 6 8.68629 6 12C6 15.3137 8.68629 18 12 18ZM12 16C14.2091 16 16 14.2091 16 12C16 9.79086 14.2091 8 12 8C9.79086 8 8 9.79086 8 12C8 14.2091 9.79086 16 12 16Z" fill="white"/>
 							<path d="M18 5C17.4477 5 17 5.44772 17 6C17 6.55228 17.4477 7 18 7C18.5523 7 19 6.55228 19 6C19 5.44772 18.5523 5 18 5Z" fill="white"/>
@@ -225,7 +196,7 @@ import salem_scramble from "@assets/salem_scramble.png";
 						</svg>
 					</a>
 					<!-- Facebook Logo -->
-					<a href="https://www.instagram.org/salemrobotics" target="_blank">
+					<a href="https://www.facebook.com/salemrobotics" target="_blank">
 						<svg fill="white" width="800px" height="800px" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
 							<path d="M12 2.03998C6.5 2.03998 2 6.52998 2 12.06C2 17.06 5.66 21.21 10.44 21.96V14.96H7.9V12.06H10.44V9.84998C10.44 7.33998 11.93 5.95998 14.22 5.95998C15.31 5.95998 16.45 6.14998 16.45 6.14998V8.61998H15.19C13.95 8.61998 13.56 9.38998 13.56 10.18V12.06H16.34L15.89 14.96H13.56V21.96C15.9164 21.5878 18.0622 20.3855 19.6099 18.57C21.1576 16.7546 22.0054 14.4456 22 12.06C22 6.52998 17.5 2.03998 12 2.03998Z"/>
 						</svg>
@@ -300,6 +271,16 @@ import salem_scramble from "@assets/salem_scramble.png";
 					}
 				}
 			}
+
+			@media (max-width: 600px) {
+				& #navbar-title {
+					width: 100%;
+					font-size: 0.7rem;
+				}
+				& #navbar-links {
+					display: none;
+				}
+			}
 		}
 
 		#title-card {
@@ -311,6 +292,8 @@ import salem_scramble from "@assets/salem_scramble.png";
 			flex-wrap: nowrap;
 			overflow: hidden;
 
+			justify-content: center;
+
 			& #title-card-container {
 				width: 70vw;
 				display: flex;
@@ -320,6 +303,7 @@ import salem_scramble from "@assets/salem_scramble.png";
 			}
 			& #title-card-title {
 				font-size: 4.5rem;
+				text-align: center;
 			}
 
 			& #title-card-desc {
@@ -334,6 +318,24 @@ import salem_scramble from "@assets/salem_scramble.png";
 				width: 50vw;
 				height: auto;
 				transform: translate(30%, -15%);
+			}
+
+			@media (max-width: 600px) {
+				height: fit-content;
+
+				& #title-card-title {
+					width: 90vw;
+					font-size: 2.5rem;
+				}
+
+				& #title-card-desc {
+					width: 90vw;
+					font-size: 1.2rem;
+				}
+
+				& #title-card-logo {
+					display: none;
+				}
 			}
 		}
 
@@ -361,6 +363,22 @@ import salem_scramble from "@assets/salem_scramble.png";
 			& #about-us-text {
 				font-size: 1.125rem;
 			}
+
+			@media (max-width: 600px) {
+				flex-direction: column;
+				width: 100%;
+				height: fit-content;
+
+				align-items: center;
+
+				& #about-us-picture {
+					width: 95vw;
+				}
+
+				& #about-us-container {
+					width: 90vw;
+				}
+			}
 		}
 
 		#first {
@@ -369,7 +387,7 @@ import salem_scramble from "@assets/salem_scramble.png";
 			justify-content: space-around;
 			height: 80vh;
 
-			& #first-desc-container {
+			& #first-desc-container, & #first-desc-text-container {
 				width: 45vw;
 				height: 100%;
 				display: flex;
@@ -403,7 +421,7 @@ import salem_scramble from "@assets/salem_scramble.png";
 			& #first-driveteam-image {
 				width: 30vw;
 				height: auto;
-				transform: translateY(-5vh);
+				transform: translateY(-2.5%);
 				border-radius: 5px;
 			}
 
@@ -420,6 +438,44 @@ import salem_scramble from "@assets/salem_scramble.png";
                 border: none;
 				border-radius: 5px;
             }
+
+			@media (max-width: 600px) {
+				flex-direction: column;
+				align-items: center;
+				height: fit-content;
+
+				& #first-desc-text-container {
+					height: fit-content;
+					width: 90vw;
+				}
+
+				& #first-desc-header {
+					font-size: 2rem;
+					text-align: center;
+					margin-block: 0;
+				}
+
+				& #first-desc-container {
+					width: 95vw;
+					height: fit-content;
+					justify-content: normal;
+					align-items: center;
+				}
+
+				& #first-images-container {
+					display: none;
+				}
+
+				& .first-logo {
+					width: 87.5vw;
+				}
+			}
+
+			@media (max-width: 450px) {
+				& .first-logo {
+					width: 95vw;
+				}
+			}
 		}
 
 		@media (prefers-color-scheme: light) {
@@ -467,6 +523,30 @@ import salem_scramble from "@assets/salem_scramble.png";
 				width: 50vw;
 				height: 70vh;
 			}
+
+			@media (max-width: 600px) {
+				flex-direction: column;
+				align-items: center;
+				margin-top: 0;
+
+				& #events-sched-info {
+					width: 90vw;
+					align-items: center;
+				}
+
+				& #events-schedule {
+					width: 80vw;
+				}
+
+				& #events-planned-container {
+					width: 90vw;
+				}
+
+				& #events-calendar-container {
+					width: 100vw;
+					height: 100vw;
+				}
+			}
 		}
 
 		#outreach {
@@ -477,6 +557,8 @@ import salem_scramble from "@assets/salem_scramble.png";
 
 			& #outreach-desc-container {
 				width: 30vw;
+				display: flex;
+				flex-direction: column;
 			}
 
 			& #outreach-desc-header {
@@ -538,10 +620,6 @@ import salem_scramble from "@assets/salem_scramble.png";
 				height: auto;
 			}
 
-			& #outreach-fll-container {
-
-			}
-
 			& #outreach-fll-header {
 				font-size: 1.75rem;
 			}
@@ -550,22 +628,60 @@ import salem_scramble from "@assets/salem_scramble.png";
 				font-size: 1.125rem;
 				transform: translateX(1.5vw);
 			}
-		}
 
-		#leadership {
+			@media (max-width: 600px) {
+				flex-direction: column;
+				align-items: center;
 
-		}
+				& #outreach-desc-container {
+					width: 90vw;
+					align-items: center;
+					flex-direction: column-reverse;
+				}
 
-		#sponsors-list {
+				& #outreach-desc-header {
+					transform: none;
+					width: 90vw;
+					text-align: center;
+				}
 
-		}
+				& #outreach-salem-scramble-image {
+					width: 90vw;
+				}
 
-		#donations {
+				& #outreach-images {
+					width: 80vw;
+					height: fit-content;
 
-		}
+					margin-bottom: -10vh;
+				}
 
-		#updates {
+				& #outreach-salembration-image {
+					width: 50vw;
+					height: 50vw;
+					transform: translateX(-10vw);
+				}
 
+				& #outreach-fll-camp-field-image {
+					width: 30vw;
+					height: 30vw;
+					transform: translate(10vw, -10vh)
+				}
+
+				& #outreach-fll {
+					flex-direction: column-reverse;
+					width: 90vw;
+					align-items: center;
+				}
+
+				& #outreach-fll-header {
+					text-align: center;
+				}
+
+				& #outreach-fll-camp-lab-image {
+					width: 90vw;
+				}
+			}
 		}
 
 		#footer {
@@ -632,6 +748,30 @@ import salem_scramble from "@assets/salem_scramble.png";
 				font-size: 1.125rem;
 				font-weight: 500;
 				color: black;
+			}
+
+			@media (max-width: 600px) {
+				& #footer-bottom {
+					flex-direction: column-reverse;
+					align-items: center;
+				}
+
+				& #footer-contact {
+					width: 90vw;
+				}
+
+				& #contacts-email p {
+					text-align: center;
+				}
+
+				& #footer-links {
+					width: 90vw;
+					justify-content: space-around;
+
+					& svg {
+						width: 15vw;
+					}
+				}
 			}
 		}
 	</style>

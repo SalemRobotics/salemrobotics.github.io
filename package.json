@@ -9,11 +9,12 @@
     "astro": "astro"
   },
   "dependencies": {
-    "@astrojs/language-server": "^2.16.3",
-    "@astrojs/sitemap": "^3.7.0",
-    "astro": "^5.17.3"
+    "@astrojs/language-server": "^2.16.9",
+    "@astrojs/sitemap": "^3.7.2",
+    "astro": "^6.3.7"
   },
   "devDependencies": {
+    "@astrojs/ts-plugin": "^1.10.9",
     "lightningcss": "^1.30.2",
     "terser": "^5.44.1"
   }

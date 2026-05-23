@@ -6,8 +6,6 @@
     <ul id="schedule-days" class="oswald-text">
         <li>Thursdays | 5PM - 8PM</li>
     </ul>
-
-    <noscript>This will not display correctly because you do not have JavaScript enabled.</noscript>
     <script is:inline type="text/javascript">
         const header = document.querySelector("#schedule-header");
         const days = document.querySelector("#schedule-days");
@@ -19,7 +17,7 @@
 
         const year = date.getFullYear();
 
-        const seasonStarts = new Date(year, 0, 10);
+        const seasonStarts = new Date(year, 0, 9);
         const schoolStart = new Date(year, 7, 28);
         const schoolEnd = new Date(year, 5, 16);
 

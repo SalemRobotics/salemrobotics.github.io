@@ -186,9 +186,9 @@ import salem_scramble from "@assets/salem_scramble.png";
 					<p><a href="mailto:brennan.macaig@gmail.com">brennan.macaig@gmail.com</a></p>
 					<p><a href="mailto:friendsofshsrobotics@gmail.com">friendsofshsrobotics@gmail.com</a></p>
 				</div>
-				<div id="footer-links">
+				<div id="footer-links" aria-hidden="true">
 					<!-- Instagram Logo -->
-					<a href="https://www.instagram.org/salemrobotics">
+					<a href="https://www.instagram.org/salemrobotics" target="_blank" tabindex="-1">
 						<svg width="800px" height="800px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
 							<path fill-rule="evenodd" clip-rule="evenodd" d="M12 18C15.3137 18 18 15.3137 18 12C18 8.68629 15.3137 6 12 6C8.68629 6 6 8.68629 6 12C6 15.3137 8.68629 18 12 18ZM12 16C14.2091 16 16 14.2091 16 12C16 9.79086 14.2091 8 12 8C9.79086 8 8 9.79086 8 12C8 14.2091 9.79086 16 12 16Z" fill="white"/>
 							<path d="M18 5C17.4477 5 17 5.44772 17 6C17 6.55228 17.4477 7 18 7C18.5523 7 19 6.55228 19 6C19 5.44772 18.5523 5 18 5Z" fill="white"/>
@@ -196,13 +196,13 @@ import salem_scramble from "@assets/salem_scramble.png";
 						</svg>
 					</a>
 					<!-- Facebook Logo -->
-					<a href="https://www.facebook.com/salemrobotics" target="_blank">
+					<a href="https://www.facebook.com/salemrobotics" target="_blank" tabindex="-1">
 						<svg fill="white" width="800px" height="800px" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
 							<path d="M12 2.03998C6.5 2.03998 2 6.52998 2 12.06C2 17.06 5.66 21.21 10.44 21.96V14.96H7.9V12.06H10.44V9.84998C10.44 7.33998 11.93 5.95998 14.22 5.95998C15.31 5.95998 16.45 6.14998 16.45 6.14998V8.61998H15.19C13.95 8.61998 13.56 9.38998 13.56 10.18V12.06H16.34L15.89 14.96H13.56V21.96C15.9164 21.5878 18.0622 20.3855 19.6099 18.57C21.1576 16.7546 22.0054 14.4456 22 12.06C22 6.52998 17.5 2.03998 12 2.03998Z"/>
 						</svg>
 					</a>
 					<!-- GitHub Logo -->
-					<a href="https://github.com/SalemRobotics/" target="_blank">
+					<a href="https://github.com/SalemRobotics/" target="_blank" tabindex="-1">
 						<svg width="800px" height="800px" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
 							<g stroke="none" fill="none" fill-rule="evenodd">
 								<g transform="translate(-140.000000, -7559.000000)" fill="white">
@@ -292,8 +292,6 @@ import salem_scramble from "@assets/salem_scramble.png";
 			flex-wrap: nowrap;
 			overflow: hidden;
 
-			justify-content: center;
-
 			& #title-card-container {
 				width: 70vw;
 				display: flex;
@@ -301,6 +299,7 @@ import salem_scramble from "@assets/salem_scramble.png";
 				align-items: center;
 				justify-content: center;
 			}
+
 			& #title-card-title {
 				font-size: 4.5rem;
 				text-align: center;
@@ -322,6 +321,7 @@ import salem_scramble from "@assets/salem_scramble.png";
 
 			@media (max-width: 600px) {
 				height: fit-content;
+				justify-content: center;
 
 				& #title-card-title {
 					width: 90vw;

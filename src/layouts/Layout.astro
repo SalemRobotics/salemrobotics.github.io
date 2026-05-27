@@ -1,66 +1,60 @@
 ---
 import "@/global.css";
 import Navbar from "@/components/Navbar.astro";
-import devil_bauer from "@assets/devil_bauer.woff2";
+import devil_bauer from "@assets/fonts/devil_bauer.woff2";
 
 import icon_png from "@assets/bluedevil.png";
+import Font from "astro/components/Font.astro";
 
 interface Props {
-    title: string;
-    description: string;
-    fetches?: { url: string, rel: string }[];
-    selected?: string;
-    headerless?: boolean;
+  title: string;
+  description: string;
+  fetches?: { url: string; rel: string }[];
+  selected?: string;
+  headerless?: boolean;
 }
 
 const props = Astro.props;
 ---
 
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en" prefix="og: https://ogp.me/ns#">
-    <head>
-        <meta charset="UTF-8" />
-        <title>{props.title} | FRC 6324 </title>
-        <meta name="viewport" content="width=device-width,initial-scale=1" />
-        <meta name="color-scheme" content="light dark" />
-        <meta name="title" content={props.title} />
-        <meta name="description" content={props.description} />
+  <head>
+    <meta charset="UTF-8" />
+    <title>{props.title} | FRC 6324</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="color-scheme" content="light dark" />
+    <meta name="title" content={props.title} />
+    <meta name="description" content={props.description} />
 
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <Font cssVariable="--font-devil-bauer" />
+    <Font cssVariable="--font-oswald" />
 
-        { props.fetches?.map((fetch) => <link href={fetch.url} rel={fetch.rel}/>) }
+    {props.fetches?.map((fetch) => <link href={fetch.url} rel={fetch.rel} />)}
 
-        <link rel="icon" type="image/png" href={icon_png.src} />
-        <link rel="apple-touch-icon" type="image/png" href={icon_png.src} />
+    <link rel="icon" type="image/png" href={icon_png.src} />
+    <link rel="apple-touch-icon" type="image/png" href={icon_png.src} />
 
-        <link
-                rel="preload"
-                as="font"
-                type="font/woff2"
-                href={devil_bauer}
-                crossorigin />
-        <link rel="canonical" href="https://frc6324.com/" />
-        <link rel="sitemap" href="/sitemap-index.xml" />
-        <meta name="generator" content={Astro.generator} />
-        <!-- OpenGraph -->
-        <meta property="og:site_name" content="FRC 6324" />
-        <meta property="og:title" content={props.title} />
-        <meta property="og:description" content={props.description} />
-        <meta property="og:type" content="website" />
-        <meta property="og:url" content={Astro.routePattern} />
-        <meta property="og:locale" content="en_US" />
-        <style>
-            body {
-                margin: 0;
-                padding: 0;
-                overflow-x: hidden;
-            }
-        </style>
-    </head>
+    <link rel="canonical" href="https://frc6324.com/" />
+    <link rel="sitemap" href="/sitemap-index.xml" />
+    <meta name="generator" content={Astro.generator} />
+    <!-- OpenGraph -->
+    <meta property="og:site_name" content="FRC 6324" />
+    <meta property="og:title" content={props.title} />
+    <meta property="og:description" content={props.description} />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={Astro.routePattern} />
+    <meta property="og:locale" content="en_US" />
+  </head>
 
-    <body>
-        {!(props.headerless ?? false) ? <Navbar pageSelected={props.selected} /> : <div></div> }
-        <slot />
-    </body>
+  <body>
+    {
+      !(props.headerless ?? false) ? (
+        <Navbar pageSelected={props.selected} />
+      ) : (
+        <div />
+      )
+    }
+    <slot />
+  </body>
 </html>

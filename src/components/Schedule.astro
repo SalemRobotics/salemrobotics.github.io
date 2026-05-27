@@ -1,77 +1,78 @@
 ---
+
 ---
 
 <div id="schedule-container">
-    <h2 id="schedule-header" class="oswald-text">Our Schedule</h2>
-    <ul id="schedule-days" class="oswald-text">
-        <li>Thursdays | 5PM - 8PM</li>
-    </ul>
-    <script is:inline type="text/javascript">
-        const header = document.querySelector("#schedule-header");
-        const days = document.querySelector("#schedule-days");
+  <h2 id="schedule-header" class="oswald-text">Our Schedule</h2>
+  <ul id="schedule-days" class="oswald-text">
+    <li>Thursdays | 5PM - 8PM</li>
+  </ul>
+  <script is:inline type="text/javascript">
+    const header = document.querySelector("#schedule-header");
+    const days = document.querySelector("#schedule-days");
 
-        /** @type { string[] } */
-        const meetings = [];
+    /** @type { string[] } */
+    const meetings = [];
 
-        let date = new Date();
+    let date = new Date();
 
-        const year = date.getFullYear();
+    const year = date.getFullYear();
 
-        const seasonStarts = new Date(year, 0, 9);
-        const schoolStart = new Date(year, 7, 28);
-        const schoolEnd = new Date(year, 5, 16);
+    const seasonStarts = new Date(year, 0, 9);
+    const schoolStart = new Date(year, 7, 28);
+    const schoolEnd = new Date(year, 5, 16);
 
-        if (date >= seasonStarts && date <= schoolEnd) {
-            // winter/spring schedule
-            header.innerText = "Our on-season schedule";
+    if (date >= seasonStarts && date <= schoolEnd) {
+      // winter/spring schedule
+      header.innerText = "Our on-season schedule";
 
-            meetings.push(
-                "Tuesdays | 5PM - 8PM",
-                "(Optional) Wednesdays | 5PM - 8PM",
-                "Thursdays | 5PM - 8PM",
-                "Saturdays | 8AM - 4PM",
-            );
-        } else if (date > schoolEnd && date < schoolStart) {
-            // Summer schedule
-            header.innerText = "Our summer schedule";
+      meetings.push(
+        "Tuesdays | 5PM - 8PM",
+        "(Optional) Wednesdays | 5PM - 8PM",
+        "Thursdays | 5PM - 8PM",
+        "Saturdays | 8AM - 4PM",
+      );
+    } else if (date > schoolEnd && date < schoolStart) {
+      // Summer schedule
+      header.innerText = "Our summer schedule";
 
-            meetings.push("Tuesdays | 5PM - 8PM");
-        } else {
-            // Fall schedule
-            header.innerText = "Our off-season schedule";
+      meetings.push("Tuesdays | 5PM - 8PM");
+    } else {
+      // Fall schedule
+      header.innerText = "Our off-season schedule";
 
-            meetings.push(
-                "(Veterans only) Tuesdays | 5PM - 8PM",
-                "Thursdays | 5PM - 8PM",
-            );
-        }
+      meetings.push(
+        "(Veterans only) Tuesdays | 5PM - 8PM",
+        "Thursdays | 5PM - 8PM",
+      );
+    }
 
-        days.innerHTML = "";
-        meetings.forEach((day) => {
-            let elem = document.createElement("li");
-            elem.innerText = day;
-            days.appendChild(elem);
-        });
-    </script>
+    days.innerHTML = "";
+    meetings.forEach((day) => {
+      let elem = document.createElement("li");
+      elem.innerText = day;
+      days.appendChild(elem);
+    });
+  </script>
 </div>
 
 <style lang="css">
-    #schedule-container {
-        min-width: fit-content;
-        display: flex;
-        flex-direction: column;
-        align-content: space-around;
-    }
+  #schedule-container {
+    min-width: fit-content;
+    display: flex;
+    flex-direction: column;
+    align-content: space-around;
+  }
 
-    #schedule-header {
-        font-size: 1.75rem;
-        font-weight: 600;
-        width: 100%;
-        text-align: center;
-    }
+  #schedule-header {
+    font-size: 1.75rem;
+    font-weight: 600;
+    width: 100%;
+    text-align: center;
+  }
 
-    #schedule-days {
-        font-size: 1.125rem;
-        font-weight: 600;
-    }
+  #schedule-days {
+    font-size: 1.125rem;
+    font-weight: 600;
+  }
 </style>

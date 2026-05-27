@@ -1,47 +1,42 @@
-@font-face {
-    font-family: Devil Bauer;
-    src:
-            local(Devil Bauer),
-            url("@/assets/devil_bauer.woff2") format('woff2'),
-            url("@/assets/devil_bauer.otf") format('opentype');
-    font-weight: normal;
-    font-style: normal;
-    font-display: swap;
-}
-
 .devil-bauer {
-    font-family: Devil Bauer, serif;
-}
-
-:root {
-    --light-bg: #fff;
-    --light-text: #303030;
-
-    --dark-bg: #181818;
-    --dark-text: #f0f0f0;
-
-    --bg: var(--light-bg);
-    --text: var(--light-text);
-
-    --bd-color: rgb(0, 51, 160);
-}
-@media (prefers-color-scheme: dark) {
-    :root {
-        --bg: var(--dark-bg);
-        --text: var(--dark-text);
-    }
-}
-
-.background {
-    color: var(--bg);
+  font-family: var(--font-devil-bauer);
 }
 
 .oswald-text {
-    font-family: "Oswald", sans-serif;
-    color: var(--text);
+  font-family: var(--font-oswald);
+}
+
+:root {
+  --light-bg: #fff;
+  --light-text: #303030;
+
+  --dark-bg: #181818;
+  --dark-text: #f0f0f0;
+
+  --bg: var(--light-bg);
+  --text: var(--light-text);
+
+  --bd-color: rgb(0, 51, 160);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: var(--dark-bg);
+    --text: var(--dark-text);
+  }
+}
+
+.background {
+  color: var(--bg);
 }
 
 .roboto-text {
-    font-family: "Roboto Light", sans-serif;
-    color: var(--text);
+  font-family: "Roboto Light", sans-serif;
+  color: var(--text);
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
 }

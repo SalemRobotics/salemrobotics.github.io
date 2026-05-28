@@ -9,15 +9,14 @@
     "astro": "astro"
   },
   "dependencies": {
-    "@astrojs/language-server": "^2.16.9",
-    "@astrojs/sitemap": "^3.7.2",
-    "astro": "^6.3.7"
+    "astro": "^6.4.2"
   },
   "devDependencies": {
+    "@astrojs/language-server": "^2.16.10",
+    "@astrojs/sitemap": "^3.7.3",
     "@astrojs/ts-plugin": "^1.10.9",
-    "lightningcss": "^1.30.2",
     "prettier": "3.8.3",
     "prettier-plugin-astro": "^0.14.1",
-    "terser": "^5.44.1"
+    "svgo": "^4.0.1"
   }
 }

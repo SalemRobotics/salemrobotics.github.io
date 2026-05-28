@@ -1,5 +1,4 @@
 ---
-
 ---
 
 <div id="schedule-container">
@@ -7,13 +6,11 @@
   <ul id="schedule-days" class="oswald-text">
     <li>Thursdays | 5PM - 8PM</li>
   </ul>
-  <script is:inline type="text/javascript">
-    const header = document.querySelector("#schedule-header");
-    const days = document.querySelector("#schedule-days");
+  <script>
+    const header = document.querySelector("#schedule-header")!;
+    const days = document.querySelector("#schedule-days")!;
 
-    /** @type { string[] } */
-    const meetings = [];
-
+    const meetings: string[] = [];
     let date = new Date();
 
     const year = date.getFullYear();
@@ -24,7 +21,7 @@
 
     if (date >= seasonStarts && date <= schoolEnd) {
       // winter/spring schedule
-      header.innerText = "Our on-season schedule";
+      header.textContent = "Our on-season schedule";
 
       meetings.push(
         "Tuesdays | 5PM - 8PM",
@@ -34,12 +31,12 @@
       );
     } else if (date > schoolEnd && date < schoolStart) {
       // Summer schedule
-      header.innerText = "Our summer schedule";
+      header.textContent = "Our summer schedule";
 
       meetings.push("Tuesdays | 5PM - 8PM");
     } else {
       // Fall schedule
-      header.innerText = "Our off-season schedule";
+      header.textContent = "Our off-season schedule";
 
       meetings.push(
         "(Veterans only) Tuesdays | 5PM - 8PM",

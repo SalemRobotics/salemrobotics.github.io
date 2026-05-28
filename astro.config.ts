@@ -1,4 +1,3 @@
-// @ts-check
 import { defineConfig, fontProviders } from "astro/config";
 
 import sitemap from "@astrojs/sitemap";
@@ -10,6 +9,7 @@ export default defineConfig({
     format: "file",
     inlineStylesheets: "always",
   },
+  compressHTML: "jsx",
   devToolbar: {
     enabled: false,
   },
@@ -18,6 +18,7 @@ export default defineConfig({
       provider: fontProviders.local(),
       name: "Devil Bauer",
       cssVariable: "--font-devil-bauer",
+      display: "swap",
       options: {
         variants: [
           {
@@ -31,7 +32,8 @@ export default defineConfig({
     {
       provider: fontProviders.fontsource(),
       name: "Oswald",
-      cssVariable: "--font-oswald",
+      display: "swap",
+      cssVariable: "--font-oswald"
     },
   ],
   integrations: [sitemap()],
@@ -43,8 +45,7 @@ export default defineConfig({
   site: "https://frc6324.com",
   vite: {
     build: {
-      minify: "terser",
-      cssMinify: "lightningcss",
+      assetsInlineLimit: 8192
     },
     resolve: {
       alias: {

@@ -5,8 +5,7 @@ import fs from "node:fs";
 import { Image, Picture } from "astro:assets";
 
 import Schedule from "@/components/Schedule.astro";
-import blue_devil_svg from "@assets/bluedevil.svg";
-import logo_grayscale from "@assets/team_logo_grayscale.svg";
+import BlueDevilSVG from "@assets/bluedevil.svg";
 import about_us_image from "@assets/about_us.png";
 import first_logo_light from "@assets/first/first_logo_light.png";
 import first_logo_dark from "@assets/first/first_logo_dark.png";
@@ -31,15 +30,7 @@ import salem_scramble from "@assets/salem_scramble.png";
         our community.
       </p>
     </div>
-    <Image
-      src={blue_devil_svg}
-      alt="The Blue Devils' logo"
-      id="title-card-logo"
-      inferSize={true}
-      format="svg"
-      priority={true}
-      aria-hidden="true"
-    />
+    <BlueDevilSVG id="title-card-logo" />
   </section>
   <section id="about-us">
     <Picture

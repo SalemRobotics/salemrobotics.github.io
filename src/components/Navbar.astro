@@ -15,18 +15,30 @@ const props = Astro.props;
 function isSelected(page: string): string {
   if (props.pageSelected === page) {
     return "#";
-  } else {
-    return `/${page}`;
   }
+
+  return `/${page}`;
 }
 ---
 
 <header id="navbar-header" role="banner" aria-label="Page Header">
   <nav id="navbar">
-    <a href={isSelected("")} id="navbar-title">
-      <h1 class="devil-bauer hover-blue">Salem Robotics</h1>
-    </a>
-    <ul id="navbar-links">
+    <div id="navbar-title-container">
+      <a href={isSelected("")} id="navbar-title">
+        <h1 class="devil-bauer hover-blue">The Blue Devils</h1>
+      </a>
+    </div>
+    <ul id="navbar-links" class="oswald-text">
+      <li>
+        <a href="/#outreach">
+          <h3 class="hover-blue">Outreach</h3>
+        </a>
+      </li>
+      <li>
+        <a href={isSelected("updates")}>
+          <h3 class="hover-blue">Updates</h3>
+        </a>
+      </li>
       <li>
         <a href={isSelected("donate")}>
           <h3 class="hover-blue">Donate</h3>
@@ -47,75 +59,73 @@ function isSelected(page: string): string {
   }
 
   #navbar-header {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100vw;
-    height: 6.5vw;
-    min-height: fit-content;
-    margin: 0.5vw 0 0.75vw 0;
-    font-family: "Arial", sans-serif;
+    position: relative;
+    width: 100%;
+    height: fit-content;
+    z-index: 5000;
+
+    background-color: #b3b3b3;
   }
 
   #navbar {
-    color: #fbfbfb;
-    border-radius: 1rem;
-    padding: 0;
-    background-color: #79849b;
+    width: 100%;
     display: flex;
+    flex-direction: row;
+    height: 10vh;
     align-items: center;
-    width: 100vw;
-    height: 100%;
-    margin: 0;
-    padding: 0;
-    color: var(--dark-text);
-  }
 
-  @media (min-width: 40rem) {
-    #navbar {
-      width: 98vw;
+    & h3,
+    & h1 {
+      margin: 0;
+    }
+
+    & a {
+      text-decoration: none;
     }
   }
 
-  #navbar-title {
-    width: 30%;
-    min-width: fit-content;
-    padding-left: 2vw;
-    margin: 1rem 0;
-    text-decoration: none;
-    border: none;
-    color: inherit;
+  #navbar-title-container {
+    width: 35%;
+    height: fit-content;
   }
 
-  #navbar-title > h1 {
-    margin: 0;
-    font-size: 2vw;
+  #navbar-title {
+    width: 100%;
+    color: var(--bd-color);
+    text-decoration: none;
+    height: fit-content;
+
+    & > h1 {
+      width: 100%;
+      text-align: center;
+    }
   }
 
   #navbar-links {
+    width: 65%;
     display: flex;
     flex-direction: row;
-    flex: 1;
-    justify-content: flex-end;
-    align-items: center;
+    justify-content: space-around;
     list-style: none;
-    margin: 0 2.5vw 0 0;
-    padding: 0;
+
+    & > li > a {
+      color: black;
+      font-size: 1.4rem;
+    }
   }
 
-  #navbar-links > li {
-    margin-left: 3vw;
-  }
+  @media (max-width: 600px) {
+    #navbar-title-container {
+      width: 100%;
+    }
 
-  #navbar-links > li a {
-    text-decoration: none;
-    color: inherit;
-  }
+    #navbar-title {
+      font-size: 3.25vw;
+    }
 
-  #navbar-links > li h3 {
-    margin: 0;
-    font-weight: 600;
-    font-size: clamp(0.9rem, 1.2vw, 1.4rem);
+    #navbar-links {
+      display: none;
+    }
   }
 
   .dropdown {
@@ -123,6 +133,7 @@ function isSelected(page: string): string {
     transform: translateY(0);
     transition: transform 0.4s ease-in-out;
   }
+
   .dropdown-caret::before {
     content: "▴";
     display: inline-block;
@@ -130,6 +141,7 @@ function isSelected(page: string): string {
     margin-left: 0.25ch;
     transition: transform 0.4s ease-in-out;
   }
+
   .dropdown-content {
     position: absolute;
     top: 105%;
@@ -142,6 +154,7 @@ function isSelected(page: string): string {
     list-style: none;
     opacity: 0;
     visibility: hidden;
+    overflow: hidden;
 
     border: 1px solid var(--bg);
     border-radius: 0.5rem;
@@ -152,6 +165,7 @@ function isSelected(page: string): string {
       transform 0.4s ease-in-out,
       visibility 0.4s ease-in-out;
   }
+
   .dropdown-content li {
     margin: 0;
     padding: 5px 10px;
@@ -169,7 +183,7 @@ function isSelected(page: string): string {
     .dropdown-content {
       background-color: var(--dark-bg);
     }
-    .dropdown-content li {
+    .dropdown-content li > a {
       color: var(--dark-text);
     }
   }
@@ -178,7 +192,7 @@ function isSelected(page: string): string {
     .dropdown-content {
       background-color: var(--light-bg);
     }
-    .dropdown-content li {
+    .dropdown-content li > a {
       color: var(--light-text);
     }
   }

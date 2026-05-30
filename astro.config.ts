@@ -33,7 +33,7 @@ export default defineConfig({
       provider: fontProviders.fontsource(),
       name: "Oswald",
       display: "swap",
-      cssVariable: "--font-oswald"
+      cssVariable: "--font-oswald",
     },
   ],
   integrations: [sitemap()],
@@ -45,7 +45,7 @@ export default defineConfig({
   site: "https://frc6324.com",
   vite: {
     build: {
-      assetsInlineLimit: 8192
+      assetsInlineLimit: 8192,
     },
     resolve: {
       alias: {

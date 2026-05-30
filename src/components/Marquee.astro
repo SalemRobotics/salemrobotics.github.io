@@ -1,0 +1,88 @@
+---
+interface Props {
+  speed?: number;
+}
+
+---
+
+<div class="marquee">
+  <div class="sr-only">
+    <slot />
+  </div>
+
+  <div class="marquee-track" aria-hidden="true">
+    <div class="marquee-group">
+      <slot />
+    </div>
+
+    <div class="marquee-group">
+      <slot />
+    </div>
+  </div>
+</div>
+
+<script>
+  document.querySelectorAll(".marquee").forEach((marquee) => {
+    const group = marquee.querySelector(".marquee-group");
+    const track = marquee.querySelector(".marquee-track");
+
+    const width = group.offsetWidth;
+    const pixelsPerSecond = 80;
+
+    track.style.setProperty("--group-width", `-${width}px`);
+    track.style.setProperty(
+      "--duration",
+      `${width / pixelsPerSecond}s`
+    );
+  });
+</script>
+
+<style>
+  .marquee {
+    overflow: hidden;
+    width: 100%;
+    display: flex;
+  }
+
+  .marquee-track {
+    align-self: center;
+    display: flex;
+    width: max-content;
+    animation: scroll var(--duration) linear infinite;
+  }
+
+  .marquee-group {
+    display: flex;
+    gap: 2rem;
+    flex-shrink: 0;
+    padding-right: 2rem;
+  }
+
+  @keyframes scroll {
+    from {
+      transform: translateX(0);
+    }
+
+    to {
+      transform: translateX(var(--group-width));
+    }
+  }
+
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    white-space: nowrap;
+    border: 0;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .marquee-track {
+      animation: none;
+    }
+  }
+</style>

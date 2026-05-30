@@ -1,11 +1,10 @@
 ---
 import Layout from "@/layouts/Layout.astro";
 
-import fs from "node:fs";
-import { Image, Picture } from "astro:assets";
+import { Picture } from "astro:assets";
 
 import Schedule from "@/components/Schedule.astro";
-import BlueDevilSVG from "@assets/bluedevil.svg";
+import BlueDevilSVG from "@assets/team-logos/bluedevil.svg";
 import about_us_image from "@assets/about_us.png";
 import first_logo_light from "@assets/first/first_logo_light.png";
 import first_logo_dark from "@assets/first/first_logo_dark.png";
@@ -17,13 +16,14 @@ import salem_scramble from "@assets/salem_scramble.png";
 ---
 
 <Layout
-  title="Salem Robotics"
+  title="Home"
   description="The official website for FRC team 6324."
   selected=""
 >
   <section id="title-card">
     <div id="title-card-container">
       <h1 id="title-card-title" class="devil-bauer">FRC Team 6324</h1>
+      <hr style="width: 80%; height: 5px; background-color: var(--text);" />
       <p id="title-card-desc" class="oswald-text">
         At team 6324 we aspire to promote STEM education, help build and grow
         robotics programs, and connect students and industry professionals in
@@ -45,6 +45,7 @@ import salem_scramble from "@assets/salem_scramble.png";
     />
     <div id="about-us-container">
       <h2 id="about-us-header" class="oswald-text">About Us</h2>
+      <hr style="width: 100%; height: 5px; background-color: var(--text);" />
       <p id="about-us-text" class="oswald-text">
         We are team 6324 from Salem, New Hampshire. Our rookie season was in
         2017, and from then on we have worked to create a welcoming environment
@@ -61,21 +62,20 @@ import salem_scramble from "@assets/salem_scramble.png";
   </section>
   <section id="first">
     <div id="first-desc-container">
-      <div id="first-desc-text-container">
-        <h2 id="first-desc-header" class="oswald-text"><em>FIRST</em></h2>
-        <p id="first-desc-text" class="oswald-text">
-          <em><abbr>FIRST</abbr></em> &nbsp; Robotics Competition (FRC) teams design,
-          program, and build a robot starting with a standard kit of parts and common
-          set of rules to play in a themed head-to-head challenge. Teams also build
-          a brand, develop community partnerships for support, and work to promote
-          STEM in their local community.
-          <br />
-          <br />
-          <a href="https://firstinspires.org"
-            >For more information on FIRST, click here</a
-          >
-        </p>
-      </div>
+      <h2 id="first-desc-header" class="oswald-text"><em>FIRST</em></h2>
+      <hr style="width: 100%; height: 5px; background-color: var(--text);" />
+      <p id="first-desc-text" class="oswald-text">
+        <em><abbr>FIRST</abbr></em> &nbsp; Robotics Competition (FRC) teams design,
+        program, and build a robot starting with a standard kit of parts and common
+        set of rules to play in a themed head-to-head challenge. Teams also build
+        a brand, develop community partnerships for support, and work to promote STEM
+        in their local community.
+        <br />
+        <br />
+        <a href="https://firstinspires.org"
+          >For more information on FIRST, click here</a
+        >
+      </p>
       <Picture
         src={first_logo_light}
         alt="The official logo of FIRST"
@@ -128,6 +128,7 @@ import salem_scramble from "@assets/salem_scramble.png";
   <section id="events">
     <div id="events-sched-info">
       <Schedule id="events-schedule" />
+      <hr style="width: 100%; height: 5px; background-color: var(--text);" />
       <div id="events-planned-container">
         <h3 id="events-planned-header" class="oswald-text">
           Planned District Events
@@ -303,7 +304,7 @@ import salem_scramble from "@assets/salem_scramble.png";
       }
 
       & #about-us-text {
-        font-size: 1.125rem;
+        font-size: 1.25rem;
       }
 
       @media (max-width: 600px) {
@@ -329,8 +330,7 @@ import salem_scramble from "@assets/salem_scramble.png";
       justify-content: space-around;
       height: 80vh;
 
-      & #first-desc-container,
-      & #first-desc-text-container {
+      & #first-desc-container {
         width: 45vw;
         height: 100%;
         display: flex;
@@ -341,11 +341,16 @@ import salem_scramble from "@assets/salem_scramble.png";
 
       & #first-desc-header {
         font-size: 5rem;
+        margin: 0;
       }
 
       & #first-desc-text {
         font-size: 1.25rem;
         font-weight: 400;
+      }
+
+      & a {
+        color: var(--text);
       }
 
       & .first-logo {

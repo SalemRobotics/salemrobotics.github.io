@@ -1,34 +1,14 @@
 ---
 import Layout from "@/layouts/Layout.astro";
-
-// Sponsor logos
-import third_generation_logo from "@assets/sponsor-logos/3rd_generation.png";
-import AutoStoreLogoSVG from "@assets/sponsor-logos/autostore.svg";
-import BAESystemsLogoSVG from "@assets/sponsor-logos/bae_systems.svg";
-import CopiumStrategiesSVG from "@assets/sponsor-logos/copium_strategies.svg";
-import DSMRealtyLogoSVG from "@assets/sponsor-logos/dsm_realty.svg";
-import exchange_club_logo from "@assets/sponsor-logos/exchange_club.jpg";
-import gene_haas_foundation_logo from "@assets/sponsor-logos/gene_haas_foundation.png";
-import GeneralAtomicsLogoSVG from "@assets/sponsor-logos/general_atomics.svg";
-import gpd_optoelectronics_logo from "@assets/sponsor-logos/gpd.webp";
-import inpsiring_futures_logo from "@assets/sponsor-logos/inspiring_futures.png";
-import LionsClubLogoSVG from "@assets/sponsor-logos/lions_club.svg";
-import nh_doe_logo from "@assets/sponsor-logos/nh_doe.png";
-import NordsonMedicalLogoSVG from "@assets/sponsor-logos/nordson_medical.svg";
-import salem_area_womens_club_logo from "@assets/sponsor-logos/salem_area_womens_club.png";
-import salem_pride_logo from "@assets/sponsor-logos/salem_pride.png";
-import ScottElectronicsSVG from "@assets/sponsor-logos/scott_electronics.svg";
-import ssd_logo from "@assets/sponsor-logos/ssd.jpg";
-import StandexLogoSVG from "@assets/sponsor-logos/standex.svg";
-import wang_auto_sales_logo from "@assets/sponsor-logos/wang_auto_sales.png";
 import Image from "astro/components/Image.astro";
-import Marquee from "@/components/Marquee.astro";
+
+import venmo_qr_code from "@assets/venmo_qr_code.png";
 ---
 
 <Layout title="Support Us" description="" selected="donate" footerless>
   <section id="top-content">
-    <div>
-      <h1>Supporting FRC Team 6324</h1>
+    <div class="oswald-text">
+      <h1 class="devil-bauer">Supporting FRC Team 6324</h1>
       <p>
         The support and generosity of our community and our sponsors is what
         allows us to keep making an impact in and around Salem.
@@ -52,139 +32,19 @@ import Marquee from "@/components/Marquee.astro";
     </div>
   </section>
   <section id="monetary-donations">
-    <div>
+    <div class="oswald-text">
       <h2>Monetary Donations</h2>
       <p>
         Personal monetary donations may be directed to Friends of SHS Robotics
         via the QR code, or via a check.
       </p>
     </div>
-    <div id="donation-info">
+    <div id="donation-info" class="oswald-text">
       <div id="venmo-qr-code">Venmo QR code</div>
+      <Image src={venmo_qr_code} alt="" layout="full-width" />
     </div>
   </section>
-  <section id="current-sponsors">
-    <h2>Current Sponsors</h2>
-    <p>
-      Team 6324 is incredibly grateful for the support of our community partners
-      and everyone who has donated to the team. Your generosity helps make our
-      opportunities, growth, and success possible!
-    </p>
-
-    <div id="current-sponsor-grid">
-      <div class="devil-bauer sponsor-tier" style="color: var(--bd-color);">
-        <h3>Blue Devil Sponsors</h3>
-      </div>
-      <div class="sponsor-list">
-        <Marquee>
-          <DSMRealtyLogoSVG class="sponsor-logo-image" fill="var(--text)" />
-          <div class="vertical-bar"></div>
-          <div class="text-only-sponsor">
-            <p class="devil-bauer">Friends of SHS Robotics</p>
-          </div>
-          <div class="vertical-bar"></div>
-          <Image src={ssd_logo} alt="" class="sponsor-logo-image" />
-          <div class="vertical-bar"></div>
-          <Image src={nh_doe_logo} alt="" class="sponsor-logo-image" />
-          <div class="vertical-bar"></div>
-          <NordsonMedicalLogoSVG class="sponsor-logo-image" />
-          <div class="vertical-bar"></div>
-        </Marquee>
-      </div>
-
-      <div class="devil-bauer sponsor-tier" style="color: #D9D9D9">
-        <h3>Platinum Devil Sponsors</h3>
-      </div>
-      <div class="sponsor-list">
-        <Marquee>
-          <CopiumStrategiesSVG class="sponsor-logo-image" />
-          <div class="vertical-bar"></div>
-          <div class="text-only-sponsor">
-            <p class="devil-bauer">Karwacki Living Trust</p>
-          </div>
-          <div class="vertical-bar"></div>
-          <StandexLogoSVG class="sponsor-logo-image" />
-          <div class="vertical-bar"></div>
-        </Marquee>
-      </div>
-
-      <div class="devil-bauer sponsor-tier" style="color: gold;">
-        <h3>Gold Devil Sponsors</h3>
-      </div>
-      <div class="sponsor-list">
-        <Marquee>
-          <Image
-            src={gene_haas_foundation_logo}
-            alt=""
-            class="sponsor-logo-image"
-          />
-          <div class="vertical-bar"></div>
-          <ScottElectronicsSVG class="sponsor-logo-image" />
-          <div class="vertical-bar"></div>
-          <BAESystemsLogoSVG class="sponsor-logo-image" />
-          <div class="vertical-bar"></div>
-          <div class="sponsor-logo-with-text">
-            <Image src={exchange_club_logo} alt="" class="sponsor-logo-image" />
-            <p class="oswald-text">Exchange Club of Salem, NH</p>
-          </div>
-          <div class="vertical-bar"></div>
-        </Marquee>
-      </div>
-
-      <div class="devil-bauer sponsor-tier" style="color: silver;">
-        <h3>Silver Devil Sponsors</h3>
-      </div>
-      <div class="sponsor-list">
-        <Marquee class="sponsor-marquee">
-          <Image
-            src={gpd_optoelectronics_logo}
-            alt=""
-            class="sponsor-logo-image"
-          />
-          <div class="vertical-bar"></div>
-          <GeneralAtomicsLogoSVG
-            class="sponsor-logo-image"
-            fill="var(--text)"
-          />
-          <div class="vertical-bar"></div>
-          <Image
-            src={inpsiring_futures_logo}
-            alt=""
-            class="sponsor-logo-image"
-          />
-          <div class="vertical-bar"></div>
-          <AutoStoreLogoSVG class="sponsor-logo-image" />
-          <div class="vertical-bar"></div>
-          <Image
-            src={salem_area_womens_club_logo}
-            alt=""
-            class="sponsor-logo-image"
-          />
-          <div class="vertical-bar"></div>
-          <div class="sponsor-logo-with-text">
-            <LionsClubLogoSVG class="sponsor-logo-image" />
-            <p class="oswald-text">Lions Club of Salem, NH</p>
-          </div>
-          <div class="vertical-bar"></div>
-        </Marquee>
-      </div>
-      <div class="devil-bauer sponsor-tier" style="color: #CE8946">
-        <h3>Bronze Devil Sponsors</h3>
-      </div>
-      <div class="sponsor-list">
-        <ul>
-          <li>
-            <Image
-              src={wang_auto_sales_logo}
-              alt=""
-              class="sponsor-logo-image"
-            />
-          </li>
-        </ul>
-      </div>
-    </div>
-  </section>
-  <section id="nonprofit-info">
+  <section id="nonprofit-info" class="oswald-text">
     <div>
       <h3>Nonprofit Info</h3>
       <p>
@@ -239,96 +99,5 @@ import Marquee from "@/components/Marquee.astro";
       </div>
     </div>
   </section>
-  <style>
-    #current-sponsor-grid {
-      display: grid;
-      grid-template-columns: 25% 75%;
-      width: 100%;
-      border: 2px solid var(--text);
-    }
 
-    .sponsor-tier,
-    .sponsor-list {
-      padding: 1rem;
-      border-bottom: 2px solid var(--text);
-    }
-
-    .sponsor-tier {
-      padding: 1rem;
-      font-size: 1.6rem;
-      font-weight: bold;
-      height: 16vh;
-      border-right: 2px solid var(--text);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      -webkit-text-stroke: 1px var(--light-text);
-      letter-spacing: normal;
-
-      & h3 {
-        width: 100%;
-        text-align: center;
-      }
-    }
-
-    .sponsor-list {
-      display: flex;
-
-      padding: 1rem;
-      scrollbar-gutter: stable;
-      scrollbar-width: auto;
-      overflow-x: auto; /* horizontal scrolling */
-
-      & .vertical-bar {
-        height: 15vh;
-        width: 0;
-        border: 1px solid var(--text);
-      }
-
-      & .text-only-sponsor {
-        height: 100%;
-        display: flex;
-        align-items: center;
-
-        & p {
-          width: 100%;
-          text-align: center;
-          margin: 0;
-          font-size: 1.5rem;
-        }
-      }
-
-      & .sponsor-logo-with-text {
-        height: 100%;
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-
-        & p {
-          height: fit-content;
-          width: fit-content;
-          margin: 0 0 0 1rem;
-          font-size: 1.5rem;
-          font-weight: bold;
-        }
-      }
-
-      & .sponsor-logo-image {
-        height: 15vh;
-        width: auto;
-      }
-    }
-
-    .sponsor-list ul {
-      display: flex;
-      align-self: center;
-      flex-wrap: nowrap; /* keep items on one line */
-      gap: 2rem;
-      min-width: max-content; /* allows content to exceed container width */
-      list-style: none;
-      margin: 0;
-      padding: 0;
-      height: fit-content;
-    }
-  </style>
 </Layout>

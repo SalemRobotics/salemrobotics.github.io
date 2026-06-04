@@ -3,15 +3,18 @@ import Layout from "@/layouts/Layout.astro";
 import Image from "astro/components/Image.astro";
 
 import venmo_qr_code from "@assets/venmo_qr_code.png";
+import sponsor_tiers from "@assets/sponsor_tiers.png";
 ---
 
 <Layout title="Support Us" description="" selected="donate" footerless>
-  <section id="top-content">
-    <div class="oswald-text">
+  <section id="top-content" class="oswald-text">
+    <div>
       <h1 class="devil-bauer">Supporting FRC Team 6324</h1>
       <p>
-        The support and generosity of our community and our sponsors is what
-        allows us to keep making an impact in and around Salem.
+        Our sponsors and community partners make everything we do possible. Their generosity and support allow our team
+        to learn, compete, travel, and create opportunities that inspire the next generation of leaders. We are
+        incredibly grateful for their investment in our team and our mission, and we are proud to recognize the
+        organizations and individuals that help make these experiences possible
       </p>
       <div>
         <h2>Ways to support:</h2>
@@ -22,72 +25,57 @@ import venmo_qr_code from "@assets/venmo_qr_code.png";
         </ul>
       </div>
     </div>
-    <div id="top-sidebar" class="oswald-text">
-      <h3>Navigation</h3>
-      <ul id="top-sidebar-links">
-        <li>Donations</li>
-        <li>Sponsorships</li>
-        <li>Nonprofit Info</li>
-      </ul>
-    </div>
   </section>
-  <section id="monetary-donations">
-    <div class="oswald-text">
-      <h2>Monetary Donations</h2>
-      <p>
-        Personal monetary donations may be directed to Friends of SHS Robotics
-        via the QR code, or via a check.
-      </p>
-    </div>
+  <section>
     <div id="donation-info" class="oswald-text">
-      <div id="venmo-qr-code">Venmo QR code</div>
       <Image src={venmo_qr_code} alt="" layout="full-width" />
     </div>
   </section>
+	<section id="sponsorship">
+		<Image src={sponsor_tiers} alt="" layout="full-width" id="sponsor-tier-image" />
+	</section>
   <section id="nonprofit-info" class="oswald-text">
-    <div>
-      <h3>Nonprofit Info</h3>
-      <p>
-        Team 6324, The Blue Devils, maintains non-profit status through the
-        Salem School District (SAU 57); Tax ID 02-6000816 and the 501(c)(3)
-        charitable organization ‘Friends of SHS Robotics’; Tax ID 93-4339616. A
-        W-9 Taxpayer Identification Certificate can be provided for either
-        entity upon request. Both in-kind and monetary donations are accepted
-        and are typically tax deductible. Checks can be made payable to ‘Friends
-        of SHS Robotics’ with ‘FRC Team 6324’ in the memo line. Donations made
-        after February 1st of each year will be attributed to the following
-        competitive season (January-April timeframe) and rewards will be granted
-        before the end of June of the applicable season.
-      </p>
+    <div id="nonprofit-contacts">
+		<hr style="width: 90%; color: var(--text)" />
+      <h3>Contacts</h3>
+      <ul>
+        <li>
+          <p class="contact-name">John Seeman</p>
+          <p class="contact-position">Lead Mentor</p>
+          <a href="mailto:frc6324.leadmentor@gmail.com" class="contact-email">frc6324.leadmentor@gmail.com</a>
+        </li>
+		  <li class="vertical-line" />
+        <li>
+          <p class="contact-name">Heather Dezan</p>
+          <p class="contact-position">President, Friends of SHS Robotics</p>
+          <a href="mailto:friendsofshsroboƟcs@gmail.com" class="contact-email"><p>friendsofshsrobotics@gmail.com</p></a>
+        </li>
+		  <li class="vertical-line" />
+        <li>
+          <p class="contact-name">Brennan Macaig</p>
+          <p class="contact-position">Treasurer, Friends of SHS Robotics</p>
+          <a href="mailto:brennan.macaig@gmail.com" class="contact-email"><p>brennan.macaig@gmail.com</p></a>
+        </li>
+      </ul>
     </div>
-    <div>
-      <div>
-        <h3>Contacts</h3>
-        <ul>
-          <li>
-            <p>John Seeman</p>
-            <p>Lead Mentor</p>
-            <a href="mailto:frc6324.leadmentor@gmail.com"
-              >frc6324.leadmentor@gmail.com</a
-            >
-          </li>
-          <li>
-            <p>Heather Dezan</p>
-            <p>President, Friends of SHS Robotics</p>
-            <a href="mailto:friendsofshsroboƟcs@gmail.com"
-              ><p>friendsofshsroboƟcs@gmail.com</p></a
-            >
-          </li>
-          <li>
-            <p>Brennan Macaig</p>
-            <p>Treasurer, Friends of SHS Robotics</p>
-            <a href="mailto:brennan.macaig@gmail.com"
-              ><p>brennan.macaig@gmail.com</p></a
-            >
-          </li>
-        </ul>
+
+    <div id="nonprofit-info-and-mail">
+      <div id="nonprofit-info-disclaimer">
+        <h3>Nonprofit Info</h3>
+        <p>
+          Team 6324, The Blue Devils, maintains non-profit status through the
+          Salem School District (SAU 57); Tax ID 02-6000816 and the 501(c)(3)
+          charitable organization ‘Friends of SHS Robotics’; Tax ID 93-4339616.
+          A W-9 Taxpayer Identification Certificate can be provided for either
+          entity upon request. Both in-kind and monetary donations are accepted
+          and are typically tax deductible. Checks can be made payable to
+          ‘Friends of SHS Robotics’ with ‘FRC Team 6324’ in the memo line.
+          Donations made after February 1st of each year will be attributed to
+          the following competitive season (January-April timeframe) and rewards
+          will be granted before the end of June of the applicable season.
+        </p>
       </div>
-      <div>
+      <div id="nonprofit-mail">
         <h3>Mailing Address</h3>
         <div>
           <p>Attn: FIRST Robotics</p>
@@ -100,4 +88,83 @@ import venmo_qr_code from "@assets/venmo_qr_code.png";
     </div>
   </section>
 
+	<style>
+		#sponsor-tier-image {
+			width: 30vw;
+			max-width: 100vw;
+			height: auto;
+		}
+		#nonprofit-info {
+			width: 100%;
+		}
+
+		#nonprofit-contacts {
+			width: 100%;
+
+			& > h3 {
+				width: 100%;
+				text-align: center;
+				font-size: 2.5rem;
+				font-weight: bolder;
+
+                margin: 10px 0 10px;
+            }
+
+			& > ul {
+				width: 100%;
+				display: flex;
+				flex-direction: row;
+				list-style: none;
+				justify-content: space-around;
+
+				& > li :not(.vertical-line) {
+					& .contact-name {
+						font-size: 1.4rem;
+					}
+
+					& .contact-position {
+						font-size: 1.2rem;
+					}
+
+					& .contact-email {
+						color: var(--text);
+					}
+
+					width: 30vw;
+				}
+			}
+		}
+
+		#nonprofit-info-and-mail {
+			width: 100%;
+			display: flex;
+			flex-direction: row-reverse;
+			justify-content: space-around;
+
+			& #nonprofit-info-disclaimer {
+				width: 50vw;
+
+				& > h3 {
+					font-size: 2rem;
+				}
+
+				& > p {
+					font-size: 1.25rem;
+					font-weight: normal;
+				}
+			}
+
+			& #nonprofit-mail {
+				width: 30vw;
+				display: flex;
+				flex-direction: column;
+
+				& > h3 {
+					width: 100%;
+					text-align: center;
+					font-size: 1.8rem;
+				}
+			}
+		}
+	</style>
 </Layout>

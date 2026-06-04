@@ -35,6 +35,11 @@
   color: var(--text);
 }
 
+.vertical-line {
+  width: 0;
+  border: 2px solid var(--text);
+}
+
 body {
   margin: 0;
   padding: 0;

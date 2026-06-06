@@ -4,75 +4,189 @@ import Image from "astro/components/Image.astro";
 
 import venmo_qr_code from "@assets/venmo_qr_code.png";
 import sponsor_tiers from "@assets/sponsor_tiers.png";
+import SponsorGrid from "@/components/SponsorGrid.astro";
 ---
 
 <Layout title="Support Us" description="" selected="donate" footerless>
   <section id="top-content" class="oswald-text">
-    <div>
-      <h1 class="devil-bauer">Supporting FRC Team 6324</h1>
+    <div id="top-content-header">
+      <h1>Supporting FRC Team 6324</h1>
       <p>
-        Our sponsors and community partners make everything we do possible. Their generosity and support allow our team
-        to learn, compete, travel, and create opportunities that inspire the next generation of leaders. We are
-        incredibly grateful for their investment in our team and our mission, and we are proud to recognize the
-        organizations and individuals that help make these experiences possible
+        Our sponsors and community partners make everything we do possible.
+        Their generosity and support allow our team to learn, compete, travel,
+        and create opportunities that inspire the next generation of leaders. We
+        are incredibly grateful for their investment in our team and our
+        mission, and we are proud to recognize the organizations and individuals
+        that help make these experiences possible
       </p>
-      <div>
-        <h2>Ways to support:</h2>
-        <ul>
-          <li>Monetary Donations</li>
-          <li>Materials</li>
-          <li>Becoming a Mentor</li>
-        </ul>
+    </div>
+  </section>
+  <section id="supporting" class="oswald-text">
+    <ul id="support-methods">
+      <li>
+        <h2>Materials</h2>
+        <p>
+          Material costs are one of our largest expenses each year. In producing
+          a high-quality robot, we typically use thousands of dollars in
+          aluminum, structural plastics, fasteners, and electronics. Directly
+          supplying these materials via in-kind donations helps us reduce our
+          annual supply budget.
+        </p>
+      </li>
+      <li>
+        <h2>Monetary</h2>
+        <p>
+          Monetary donations are the most flexible way of supporting our
+          program. We give our sponsors the choice to divert funds to a specific
+          aspect of our budget including, but not limited to, registration
+          costs, build budget, travel expenses, and apparel. Every dollar helps
+          reduce the cost to our students.
+        </p>
+      </li>
+      <li>
+        <h2>Mentoring</h2>
+        <p>
+          Become a mentor! We are always looking for professionals interested in
+          working directly with our students either in-person at our meetings or
+          at job sites through internships. We are actively recruiting mentors
+          for business, CAD, manufacturing, media, outreach, software
+          development, and more! To become a mentor or provide, an opportunity
+          for our students, please contact one of <a
+            href="mailto:frc6324.leadmentor@gmail.com">our Lead Mentors</a
+          >.
+        </p>
+      </li>
+    </ul>
+    <div id="support-sidebar">
+      <div id="venmo-qr-code">
+        <Image src={venmo_qr_code} alt="" layout="full-width" inferSize={true} priority={true} />
       </div>
+      <p>
+        The easiest way to support us is to send us money via Venmo! Scan the qr
+        code above or go to <a href="">this Venmo page</a> to easily support Salem
+        Robotics.
+      </p>
     </div>
   </section>
-  <section>
-    <div id="donation-info" class="oswald-text">
-      <Image src={venmo_qr_code} alt="" layout="full-width" />
+  <hr style="width: 100%; height: 5px; background-color: var(--text);" />
+  <section id="sponsorship-container" class="oswald-text">
+    <div id="sponsorship">
+      <h2>Sponsorship</h2>
+      <p>
+        Sponsorship is the best way to support our team. we rely on our sponsors
+        to help with the high cost of participation associated with FIRST
+        Robotics Competition and our community outreach programs. Our community
+        partners are critical to our efforts in making sure that all students
+        can participate in our programs and grow as professionals, regardless of
+        their economic status.
+      </p>
+      <h3>Investing in Your Future</h3>
+      <p>
+        Our program is at the forefront of helping our students develop the
+        technical and professional skills that they need to succeed in their
+        future professions and their lives overall after high school. You can
+        directly support our efforts in preparing the next generation of
+        engineers and technical experts.
+      </p>
+      <p>
+        Of our graduates, over &frac23; stay local, pursuing educational
+        opportunities and careers in the New Hampshire and greater New England
+        area. Of that group, nearly all students that have pursued an internship
+        with one of our sponsors while they were in high school have continued
+        working their post graduation. By supporting our program you are not
+        only supporting students in your community, you are also supporting your
+        future workforce and ensuring that these students will have the skills
+        that you and your clients are looking for.
+      </p>
+      <h3>Benefits</h3>
+      <p>
+        Beyond supporting the next generation of engineers, scientists, and
+        business professionals, sponsors also receive many benefits depending on
+        the donation level. These include, but are <em>not</em> limited to:
+      </p>
+      <ul id="sponsor-benefits">
+        <li>
+          Exposure via our:
+          <ul>
+            <li>website</li>
+            <li>T-shirts</li>
+            <li>pit banners</li>
+            <li>robots</li>
+            <li>technical binders</li>
+            <li>any other promotional material we produce</li>
+          </ul>
+        </li>
+        <li>The ability to request robot demos at your place of business.</li>
+      </ul>
+    </div>
+    <div id="sponsor-sidebar">
+      <h3>Sponsor Tiers:</h3>
+      <Image
+        src={sponsor_tiers}
+        alt=""
+        layout="full-width"
+        id="sponsor-tier-image"
+      />
     </div>
   </section>
-	<section id="sponsorship">
-		<Image src={sponsor_tiers} alt="" layout="full-width" id="sponsor-tier-image" />
-	</section>
+  <div class="no-print">
+    <SponsorGrid />
+  </div>
   <section id="nonprofit-info" class="oswald-text">
     <div id="nonprofit-contacts">
-		<hr style="width: 90%; color: var(--text)" />
       <h3>Contacts</h3>
       <ul>
         <li>
           <p class="contact-name">John Seeman</p>
           <p class="contact-position">Lead Mentor</p>
-          <a href="mailto:frc6324.leadmentor@gmail.com" class="contact-email">frc6324.leadmentor@gmail.com</a>
+          <a href="mailto:frc6324.leadmentor@gmail.com" class="contact-email"
+            >frc6324.leadmentor@gmail.com</a
+          >
         </li>
-		  <li class="vertical-line" />
+        <li class="vertical-line"></li>
         <li>
           <p class="contact-name">Heather Dezan</p>
           <p class="contact-position">President, Friends of SHS Robotics</p>
-          <a href="mailto:friendsofshsroboƟcs@gmail.com" class="contact-email"><p>friendsofshsrobotics@gmail.com</p></a>
+          <a href="mailto:friendsofshsrobotics@gmail.com" class="contact-email"
+            ><p>friendsofshsrobotics@gmail.com</p></a
+          >
         </li>
-		  <li class="vertical-line" />
+        <li class="vertical-line"></li>
         <li>
           <p class="contact-name">Brennan Macaig</p>
           <p class="contact-position">Treasurer, Friends of SHS Robotics</p>
-          <a href="mailto:brennan.macaig@gmail.com" class="contact-email"><p>brennan.macaig@gmail.com</p></a>
+          <a href="mailto:brennan.macaig@gmail.com" class="contact-email"
+            ><p>brennan.macaig@gmail.com</p></a
+          >
         </li>
       </ul>
     </div>
-
     <div id="nonprofit-info-and-mail">
       <div id="nonprofit-info-disclaimer">
         <h3>Nonprofit Info</h3>
+        <style>
+          .inline-block {
+            display: inline-block;
+          }
+        </style>
         <p>
-          Team 6324, The Blue Devils, maintains non-profit status through the
-          Salem School District (SAU 57); Tax ID 02-6000816 and the 501(c)(3)
-          charitable organization ‘Friends of SHS Robotics’; Tax ID 93-4339616.
-          A W-9 Taxpayer Identification Certificate can be provided for either
-          entity upon request. Both in-kind and monetary donations are accepted
-          and are typically tax deductible. Checks can be made payable to
-          ‘Friends of SHS Robotics’ with ‘FRC Team 6324’ in the memo line.
-          Donations made after February 1st of each year will be attributed to
-          the following competitive season (January-April timeframe) and rewards
-          will be granted before the end of June of the applicable season.
+          Team 6324, The Blue Devils, maintains non-profit status through the <span
+            class="inline-block">Salem School District (SAU 57);</span
+          >
+          <span class="inline-block">Tax ID 02-6000816</span> and the <span
+            class="inline-block">501(c)(3)</span
+          >
+          charitable organization <span class="inline-block"
+            >‘Friends of SHS Robotics’;
+          </span>
+          <span class="inline-block">Tax ID 93-4339616.</span>
+          A <span class="inline-block">W-9</span> Taxpayer Identification Certificate can be provided for either entity
+          upon request. Both in-kind and monetary donations are accepted and are typically
+          tax deductible. Checks can be made payable to ‘Friends of SHS Robotics’
+          with ‘FRC Team 6324’ in the memo line. Donations made after February 1st
+          of each year will be attributed to the following competitive season (January-April
+          timeframe) and rewards will be granted before the end of June of the applicable
+          season.
         </p>
       </div>
       <div id="nonprofit-mail">
@@ -87,84 +201,190 @@ import sponsor_tiers from "@assets/sponsor_tiers.png";
       </div>
     </div>
   </section>
+  <style>
+    #top-content {
+      & #top-content-header {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
 
-	<style>
-		#sponsor-tier-image {
-			width: 30vw;
-			max-width: 100vw;
-			height: auto;
-		}
-		#nonprofit-info {
-			width: 100%;
-		}
+        & h1 {
+          width: fit-content;
+          font-size: 3rem;
+          margin-block: 5rem;
+        }
 
-		#nonprofit-contacts {
-			width: 100%;
+        & p {
+          width: 80%;
+          font-size: 1.5rem;
+        }
+      }
+    }
 
-			& > h3 {
-				width: 100%;
-				text-align: center;
-				font-size: 2.5rem;
-				font-weight: bolder;
+    #supporting {
+      display: flex;
+      justify-content: space-between;
+      height: fit-content;
+    }
 
-                margin: 10px 0 10px;
-            }
+    #support-methods {
+      list-style: none;
+      width: 60vw;
+      padding: 0;
+      margin: 0 0 2.5rem;
 
-			& > ul {
-				width: 100%;
-				display: flex;
-				flex-direction: row;
-				list-style: none;
-				justify-content: space-around;
+      & li {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
 
-				& > li :not(.vertical-line) {
-					& .contact-name {
-						font-size: 1.4rem;
-					}
+      & li h2 {
+        font-size: 2rem;
+      }
 
-					& .contact-position {
-						font-size: 1.2rem;
-					}
+      & li p {
+        width: 75%;
+        margin: 0;
+        font-size: 1.25rem;
+      }
+    }
 
-					& .contact-email {
-						color: var(--text);
-					}
+    #support-sidebar {
+      width: 40vw;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
 
-					width: 30vw;
-				}
-			}
-		}
+      & p {
+        width: 80%;
+      }
+    }
 
-		#nonprofit-info-and-mail {
-			width: 100%;
-			display: flex;
-			flex-direction: row-reverse;
-			justify-content: space-around;
+    #sponsorship-container {
+      width: 100%;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
 
-			& #nonprofit-info-disclaimer {
-				width: 50vw;
+      & #sponsorship {
+        width: 65vw;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        font-size: 1.05rem;
 
-				& > h3 {
-					font-size: 2rem;
-				}
+        & h2 {
+          font-size: 2rem;
+        }
 
-				& > p {
-					font-size: 1.25rem;
-					font-weight: normal;
-				}
-			}
+        & h3 {
+          font-size: 1.5rem;
+        }
 
-			& #nonprofit-mail {
-				width: 30vw;
-				display: flex;
-				flex-direction: column;
+        & p {
+          width: 80%;
+        }
+      }
+    }
 
-				& > h3 {
-					width: 100%;
-					text-align: center;
-					font-size: 1.8rem;
-				}
-			}
-		}
-	</style>
+    #sponsor-benefits {
+      width: 75%;
+
+      & > li > ul {
+        padding-block: 10px;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1rem;
+      }
+    }
+
+    #sponsor-sidebar {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      font-size: 2rem;
+      font-weight: bolder;
+
+      & #sponsor-tier-image {
+        width: 30vw;
+        height: auto;
+      }
+    }
+
+    #nonprofit-info {
+      width: 100%;
+    }
+
+    #nonprofit-contacts {
+      width: 100%;
+
+      & > h3 {
+        width: 100%;
+        text-align: center;
+        font-size: 2.5rem;
+        font-weight: bolder;
+
+        margin: 10px 0 10px;
+      }
+
+      & > ul {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        list-style: none;
+        justify-content: space-around;
+
+        & > li :not(.vertical-line) {
+          & .contact-name {
+            font-size: 1.4rem;
+          }
+
+          & .contact-position {
+            font-size: 1.2rem;
+          }
+
+          & .contact-email {
+            color: var(--text);
+          }
+
+          width: 30vw;
+        }
+      }
+    }
+
+    #nonprofit-info-and-mail {
+      width: 100%;
+      display: flex;
+      flex-direction: row-reverse;
+      justify-content: space-around;
+
+      & #nonprofit-info-disclaimer {
+        width: 50vw;
+
+        & > h3 {
+          font-size: 2rem;
+        }
+
+        & > p {
+          font-size: 1.25rem;
+          font-weight: normal;
+        }
+      }
+
+      & #nonprofit-mail {
+        width: 30vw;
+        display: flex;
+        flex-direction: column;
+
+        & > h3 {
+          width: 100%;
+          text-align: center;
+          font-size: 1.8rem;
+        }
+      }
+    }
+  </style>
 </Layout>

@@ -1,4 +1,4 @@
-import { defineConfig, fontProviders } from "astro/config";
+import { defineConfig, fontProviders, svgoOptimizer } from "astro/config";
 
 import sitemap from "@astrojs/sitemap";
 import { cpus } from "node:os";
@@ -11,7 +11,22 @@ export default defineConfig({
   },
   compressHTML: "jsx",
   devToolbar: {
-    enabled: false,
+    enabled: true,
+  },
+  experimental: {
+    chromeDevtoolsWorkspace: true,
+    svgOptimizer: svgoOptimizer({
+      plugins: [
+        'preset-default',
+        'removeXMLNS',
+        {
+          name: "removeXlink",
+          params: {
+            includeLegacy: true
+          }
+        }
+      ]
+    }),
   },
   fonts: [
     {
@@ -39,7 +54,7 @@ export default defineConfig({
   integrations: [sitemap()],
   prefetch: true,
   server: {
-    host: true,
+    host: "0.0.0.0",
     port: 6324,
   },
   site: "https://frc6324.com",

@@ -19,6 +19,12 @@
   --bd-color: rgb(0, 51, 160);
 }
 
+@media print {
+  .no-print {
+    display: none !important;
+  }
+}
+
 @media (prefers-color-scheme: dark) {
   :root {
     --bg: var(--dark-bg);

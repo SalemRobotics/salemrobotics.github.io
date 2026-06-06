@@ -50,7 +50,7 @@ import Image from "astro/components/Image.astro";
         <div class="vertical-bar"></div>
         <Image src={nh_doe_logo} alt="" class="sponsor-logo-image" />
         <div class="vertical-bar"></div>
-        <NordsonMedicalLogoSVG class="sponsor-logo-image" />
+        <NordsonMedicalLogoSVG class="sponsor-logo-image" fill="var(--text)" />
         <div class="vertical-bar"></div>
       </Marquee>
     </div>
@@ -66,7 +66,7 @@ import Image from "astro/components/Image.astro";
           <p class="devil-bauer">Karwacki Living Trust</p>
         </div>
         <div class="vertical-bar"></div>
-        <StandexLogoSVG class="sponsor-logo-image" />
+        <StandexLogoSVG class="sponsor-logo-image" fill="var(--text)" />
         <div class="vertical-bar"></div>
       </Marquee>
     </div>
@@ -98,10 +98,11 @@ import Image from "astro/components/Image.astro";
       <h3>Silver Devil Sponsors</h3>
     </div>
     <div class="sponsor-list">
-      <Marquee class="sponsor-marquee">
+      <Marquee>
         <Image
           src={gpd_optoelectronics_logo}
           alt=""
+          id="gpd-logo"
           class="sponsor-logo-image"
         />
         <div class="vertical-bar"></div>
@@ -146,6 +147,11 @@ import Image from "astro/components/Image.astro";
     grid-template-columns: 25% 75%;
     width: 100%;
     border: 2px solid var(--text);
+  }
+
+  #gpd-logo {
+    background-color: var(--light-bg);
+    border-radius: 15px;
   }
 
   #current-sponsors-header {

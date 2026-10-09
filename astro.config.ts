@@ -17,15 +17,15 @@ export default defineConfig({
     chromeDevtoolsWorkspace: true,
     svgOptimizer: svgoOptimizer({
       plugins: [
-        'preset-default',
-        'removeXMLNS',
+        "preset-default",
+        "removeXMLNS",
         {
           name: "removeXlink",
           params: {
-            includeLegacy: true
-          }
-        }
-      ]
+            includeLegacy: true,
+          },
+        },
+      ],
     }),
   },
   fonts: [

@@ -22,10 +22,10 @@ function isSelected(page: string): string {
 ---
 
 <!-- TODO: Add line animation under hovered links -->
-<header id="navbar-header" role="banner" aria-label="Page Header">
+<header id="navbar-header" role="banner" aria-label="Page Header" transition:name="page-header" transition:persist>
   <nav id="navbar">
     <div id="navbar-title-container">
-      <a href={isSelected("")} id="navbar-title">
+      <a data-navbar-update="/#" href={isSelected("")} id="navbar-title">
         <h1 class="devil-bauer hover-blue">The Blue Devils</h1>
       </a>
     </div>
@@ -36,17 +36,30 @@ function isSelected(page: string): string {
         </a>
       </li>
       <li>
-        <a href={isSelected("updates")}>
+        <a data-navbar-update="/updates" href={isSelected("updates")}>
           <h3 class="hover-blue">Updates</h3>
         </a>
       </li>
       <li>
-        <a href={isSelected("donate")}>
+        <a data-navbar-update="/donate" href={isSelected("donate")}>
           <h3 class="hover-blue">Support Us</h3>
         </a>
       </li>
     </ul>
   </nav>
+  <script is:inline>
+    document.addEventListener("astro:page-load", () => {
+      const elements = document.querySelectorAll("[data-navbar-update]");
+
+      elements.forEach(e => {
+        const url = e.dataset.navbarUpdate;
+
+        if (e instanceof HTMLAnchorElement) {
+          e.href = url;
+        }
+      });
+    });
+  </script>
 </header>
 
 <style>
@@ -60,7 +73,8 @@ function isSelected(page: string): string {
   }
 
   #navbar-header {
-    position: relative;
+    position: sticky;
+    top: 0;
     width: 100%;
     height: fit-content;
     z-index: 5000;

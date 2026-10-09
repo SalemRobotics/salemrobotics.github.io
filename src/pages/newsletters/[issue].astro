@@ -2,51 +2,61 @@
 import fs from "node:fs/promises";
 import path from "node:path";
 import Layout from "@/layouts/Layout.astro";
+import { getNewsletterEditions } from "@/newsletter.ts";
 
 export async function getStaticPaths() {
-  const newsletterDir = path.join(process.cwd(), "src", "newsletter");
-  const files = await fs.readdir(newsletterDir);
+  const editions = await getNewsletterEditions();
 
-  const jsonFiles = files.filter((f) => f.endsWith(".json"));
-
-  return await Promise.all(
-    jsonFiles.map(async (file) => {
-      const slug = file.replace(".json", "");
-
-      const metadata = JSON.parse(
-        await fs.readFile(path.join(newsletterDir, file), "utf8"),
-      );
-
-      return {
-        params: { issue: slug },
-        props: {
-          slug,
-          metadata,
-        },
-      };
-    }),
-  );
+  return editions.map((edition) => {
+    const { filePath, title, description } = edition;
+    
+    return {
+      params: { issue: filePath },
+      props: {
+        slug: filePath,
+        metadata: {
+          title,
+          description
+        }
+      }
+    }
+  });
 }
 
 const { slug, metadata } = Astro.props;
-
-// This imports the PDF as an asset.
-const pdfModules = import.meta.glob("@/newsletter/*.pdf", {
-  eager: true,
-  import: "default",
-});
-
 const pdfUrl = `/newsletters/${slug}.pdf`;
 ---
 
-<Layout title="" description="">
-  <h1>{metadata.title}</h1>
-
-  <p>{metadata.description}</p>
-
-  <p>
-    <a href={pdfUrl}>Download PDF</a>
-  </p>
-
-  <iframe src={pdfUrl} width="100%" height="1000"></iframe>
+<Layout title={metadata.title} description={metadata.description}>
+  <div id="desc-container">
+    <h1 id="newsletter-title">{metadata.title}</h1>
+    <p id="newsletter-desc">{metadata.description}</p>
+    <button>
+      <p>
+        <a href={pdfUrl}>
+          Download as a PDF
+        </a>
+      </p>
+    </button>
+  </div>
+  <div id="newsletter-view">
+    <iframe src={pdfUrl} width="100%" height="100%"></iframe>
+  </div>
+  <style>
+    :global(html) {
+      scroll-snap-type: y mandatory;
+    }
+    :global(footer) {
+      scroll-snap-align: end;
+    }
+    #desc-container {
+      scroll-snap-align: center;
+      min-height: 50vh;
+    }
+    #newsletter-view {
+      scroll-snap-align: center;
+      width: 100%;
+      height: 90vh;
+    }
+  </style>
 </Layout>

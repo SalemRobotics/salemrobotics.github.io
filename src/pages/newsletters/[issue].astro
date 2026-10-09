@@ -9,32 +9,42 @@ export async function getStaticPaths() {
 
   return editions.map((edition) => {
     const { filePath, title, description } = edition;
-    
+
     return {
       params: { issue: filePath },
       props: {
         slug: filePath,
         metadata: {
           title,
-          description
-        }
-      }
-    }
+          description,
+        },
+      },
+    };
   });
 }
 
 const { slug, metadata } = Astro.props;
 const pdfUrl = `/newsletters/${slug}.pdf`;
+
+const pdfPath = path.join(
+  process.cwd(),
+  "public",
+  "newsletters",
+  `${slug}.pdf`,
+);
+
+const { size: pdfSize } = await fs.stat(pdfPath);
+const pdfSizeMB = (pdfSize / 1024 / 1024).toFixed(1);
 ---
 
 <Layout title={metadata.title} description={metadata.description}>
-  <div id="desc-container">
+  <div id="desc-container" class="oswald-text">
     <h1 id="newsletter-title">{metadata.title}</h1>
-    <p id="newsletter-desc">{metadata.description}</p>
+    <p id="newsletter-desc" set:html={metadata.description} />
     <button>
       <p>
         <a href={pdfUrl}>
-          Download as a PDF
+          Download this edition as a PDF ({pdfSizeMB} MB)
         </a>
       </p>
     </button>
@@ -45,13 +55,15 @@ const pdfUrl = `/newsletters/${slug}.pdf`;
   <style>
     :global(html) {
       scroll-snap-type: y mandatory;
+      scroll-padding-top: 10vh;
     }
     :global(footer) {
       scroll-snap-align: end;
     }
     #desc-container {
       scroll-snap-align: center;
-      min-height: 50vh;
+      margin-bottom: 5vh;
+      padding-left: 5%;
     }
     #newsletter-view {
       scroll-snap-align: center;

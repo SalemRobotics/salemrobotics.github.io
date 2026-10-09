@@ -2,7 +2,6 @@
 interface Props {
   speed?: number;
 }
-
 ---
 
 <div class="marquee">
@@ -30,10 +29,7 @@ interface Props {
     const pixelsPerSecond = 80;
 
     track.style.setProperty("--group-width", `-${width}px`);
-    track.style.setProperty(
-      "--duration",
-      `${width / pixelsPerSecond}s`
-    );
+    track.style.setProperty("--duration", `${width / pixelsPerSecond}s`);
   });
 </script>
 

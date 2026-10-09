@@ -13,21 +13,6 @@ export default defineConfig({
   devToolbar: {
     enabled: true,
   },
-  experimental: {
-    chromeDevtoolsWorkspace: true,
-    svgOptimizer: svgoOptimizer({
-      plugins: [
-        "preset-default",
-        "removeXMLNS",
-        {
-          name: "removeXlink",
-          params: {
-            includeLegacy: true,
-          },
-        },
-      ],
-    }),
-  },
   fonts: [
     {
       provider: fontProviders.local(),

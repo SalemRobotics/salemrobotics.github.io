@@ -43,7 +43,7 @@ const pdfSizeMB = (pdfSize / 1024 / 1024).toFixed(1);
     <p id="newsletter-desc" set:html={metadata.description} />
     <button>
       <p>
-        <a href={pdfUrl}>
+        <a href={pdfUrl} download>
           Download this edition as a PDF ({pdfSizeMB} MB)
         </a>
       </p>

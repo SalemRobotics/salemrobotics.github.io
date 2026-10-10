@@ -1,0 +1,28 @@
+---
+---
+
+<div class="glass-card">
+  <slot />
+</div>
+
+<style>
+  .glass-card {
+  /* 1. Semi-transparent background (White tint with low opacity) */
+  background: rgba(255, 255, 255, 0.15);
+
+  /* 2. The frosted glass blur effect */
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px); /* Safari support */
+  
+  /* 3. Translucent border to simulate light catching the glass edge */
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  
+  /* 4. Soft shadow to give a floating/layered effect */
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.2);
+  
+  /* Aesthetics */
+  border-radius: 16px;
+  padding: 20px;
+}
+
+</style>

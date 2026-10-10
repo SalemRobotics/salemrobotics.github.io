@@ -25,10 +25,11 @@ import GrayDevilSVG from "@assets/team-logos/team_logo_grayscale.svg";
       </div>
       <div id="footer-links" aria-hidden="true">
         <a
-          href="https://www.instagram.org/salemrobotics"
+          href="https://www.instagram.org/salemrobotics6324"
           target="_blank"
           tabindex="-1"
         >
+          <p style="display: none">Instagram</p>
           <svg
             width="800px"
             height="800px"
@@ -56,6 +57,7 @@ import GrayDevilSVG from "@assets/team-logos/team_logo_grayscale.svg";
           target="_blank"
           tabindex="-1"
         >
+          <p style="display: none">Facebook</p>
           <svg
             fill="white"
             width="800px"
@@ -73,6 +75,7 @@ import GrayDevilSVG from "@assets/team-logos/team_logo_grayscale.svg";
           target="_blank"
           tabindex="-1"
         >
+          <p style="display: none">GitHub</p>
           <svg
             width="800px"
             height="800px"
@@ -106,6 +109,7 @@ import GrayDevilSVG from "@assets/team-logos/team_logo_grayscale.svg";
     background-color: #b3b3b3;
     min-height: 50vh;
     color: black;
+    border-top: 1px solid black;
 
     & #footer-top {
       width: 100%;
@@ -127,8 +131,10 @@ import GrayDevilSVG from "@assets/team-logos/team_logo_grayscale.svg";
     }
 
     & #footer-logo-container {
-      width: fit-content;
+      width: 30vw;
       height: fit-content;
+      display: flex;
+      justify-content: center;
     }
 
     & #footer-logo {
@@ -140,6 +146,7 @@ import GrayDevilSVG from "@assets/team-logos/team_logo_grayscale.svg";
       width: 30vw;
       height: fit-content;
       display: block;
+      text-align: center;
     }
 
     & #contacts-email {
@@ -164,9 +171,11 @@ import GrayDevilSVG from "@assets/team-logos/team_logo_grayscale.svg";
     }
 
     & #footer-mailing {
+      width: 30vw;
       font-size: 1.125rem;
       font-weight: 500;
       color: black;
+      text-align: center;
     }
 
     @media (max-width: 600px) {

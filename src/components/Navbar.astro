@@ -22,11 +22,7 @@ function isSelected(page: string): string {
 ---
 
 <!-- TODO: Add line animation under hovered links -->
-<header
-  id="navbar-header"
-  role="banner"
-  aria-label="Page Header"
->
+<header id="navbar-header" role="banner" aria-label="Page Header">
   <nav id="navbar">
     <div id="navbar-title-container">
       <a href={isSelected("")} id="navbar-title">
@@ -60,7 +56,7 @@ function isSelected(page: string): string {
 
   .hover-blue:hover,
   .hover-blue:focus-within {
-    color: var(--bd-color);
+    color: var(--bd-blue);
   }
 
   #navbar-header {
@@ -97,7 +93,7 @@ function isSelected(page: string): string {
 
   #navbar-title {
     width: 100%;
-    color: var(--bd-color);
+    color: var(--bd-blue);
     text-decoration: none;
     height: fit-content;
 

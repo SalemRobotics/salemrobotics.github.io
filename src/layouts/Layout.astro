@@ -21,10 +21,7 @@ const props = Astro.props;
 ---
 
 <!doctype html>
-<html
-  lang="en"
-  prefix="og: https://ogp.me/ns#"
->
+<html lang="en" prefix="og: https://ogp.me/ns#">
   <head>
     <meta charset="UTF-8" />
     <title>
@@ -64,4 +61,14 @@ const props = Astro.props;
 
     {!props.footerless ? <Footer /> : <div />}
   </body>
+
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: linear-gradient(100deg, var(--bg-gradient-from), var(--bg-gradient-to));
+    }
+  </style>
 </html>

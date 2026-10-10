@@ -8,15 +8,20 @@
 
 :root {
   --light-bg: #fff;
+  --light-bg-extreme: #fff;
   --light-text: #303030;
 
   --dark-bg: #181818;
+  --dark-bg-extreme: #000;
   --dark-text: #f0f0f0;
 
-  --bg: var(--light-bg);
   --text: var(--light-text);
+  
+  --bd-blue: rgb(0, 51, 160);
+  --pink-bumpers: rgb(255, 35, 149);
 
-  --bd-color: rgb(0, 51, 160);
+  --bg-gradient-from: #f0f0f0;
+  --bg-gradient-to: var(--pink-bumpers);
 }
 
 @media print {
@@ -27,13 +32,11 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --bg: var(--dark-bg);
+    --bg-gradient-from: var(--dark-bg);
+    --bg-gradient-to: var(--bd-blue);
+
     --text: var(--dark-text);
   }
-}
-
-.background {
-  color: var(--bg);
 }
 
 .roboto-text {

@@ -1,7 +1,7 @@
 ---
-import Layout from "@/layouts/Layout.astro";
-
 import { Picture } from "astro:assets";
+import Layout from "@/layouts/Layout.astro";
+import Card from "@/components/Card.astro";
 
 import Schedule from "@/components/Schedule.astro";
 import BlueDevilSVG from "@assets/team-logos/bluedevil.svg";
@@ -72,9 +72,9 @@ import salem_scramble from "@assets/salem_scramble.png";
         in their local community.
         <br />
         <br />
-        <a href="https://firstinspires.org"
-          >For more information on FIRST, click here&nearr;</a
-        >
+        <a href="https://firstinspires.org">
+          For more information on FIRST, click here&nearr;
+        </a>
       </p>
       <Picture
         src={first_logo_light}
@@ -116,7 +116,7 @@ import salem_scramble from "@assets/salem_scramble.png";
         <iframe
           width="100%"
           height="100%"
-          src="https://www.youtube-nocookie.com/embed/_fybREErgyM?si=QiXlz7O0tmGGlJ3m"
+          src="https://www.youtube-nocookie.com/embed/_fybREErgyM?rel=0"
           title="YouTube video player"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; fullscreen; gyroscope;"
           referrerpolicy="strict-origin-when-cross-origin"
@@ -128,8 +128,7 @@ import salem_scramble from "@assets/salem_scramble.png";
   <section id="events">
     <div id="events-sched-info">
       <Schedule id="events-schedule" />
-      <hr style="width: 100%; height: 5px; background-color: var(--text);" />
-      <div id="events-planned-container">
+      <Card>
         <h3 id="events-planned-header" class="oswald-text">
           Planned District Events
         </h3>
@@ -140,17 +139,15 @@ import salem_scramble from "@assets/salem_scramble.png";
             </a>
           </li>
           <li>
-            <a href="https://www.nefirst.org/nedcmp">
-              New England DCMP
-            </a>
+            <a href="https://www.nefirst.org/nedcmp"> New England DCMP </a>
           </li>
         </ul>
-      </div>
+      </Card>
     </div>
     <div id="events-calendar-container">
       <iframe
         title="Team calendar"
-        src="https://calendar.google.com/calendar/embed?src=6da6819b6a706700984680c5424a3fb0e200bdf3d1829157f34c24c9a98d7ce0%40group.calendar.google.com&ctz=America%2FNew_York"
+        src="https://calendar.google.com/calendar/embed?src=ea85c994e6f57af1dcf4ee4034ac650009c357125bdb8d1c423e6e6e7a6041e0%40group.calendar.google.com&ctz=America%2FNew_York"
         style="border: 0"
         loading="lazy"
         width="100%"
@@ -229,10 +226,6 @@ import salem_scramble from "@assets/salem_scramble.png";
     </div>
   </section>
   <style>
-    html {
-      scroll-behavior: smooth;
-    }
-
     #title-card {
       position: relative;
       width: 100%;
@@ -267,6 +260,7 @@ import salem_scramble from "@assets/salem_scramble.png";
         width: 50vw;
         height: auto;
         transform: translate(30%, -15%);
+        z-index: 500;
       }
 
       @media (max-width: 600px) {
@@ -376,7 +370,6 @@ import salem_scramble from "@assets/salem_scramble.png";
       & #first-driveteam-image {
         width: 30vw;
         height: auto;
-        transform: translateY(-2.5%);
         border-radius: 5px;
       }
 
@@ -535,6 +528,7 @@ import salem_scramble from "@assets/salem_scramble.png";
       & #outreach-salem-scramble-image {
         width: 25vw;
         height: auto;
+        border-radius: 5px;
       }
 
       & #outreach-images {
@@ -573,6 +567,7 @@ import salem_scramble from "@assets/salem_scramble.png";
       & #outreach-fll-camp-lab-image {
         width: 27.5vw;
         height: auto;
+        border-radius: 5px;
       }
 
       & #outreach-fll-header {

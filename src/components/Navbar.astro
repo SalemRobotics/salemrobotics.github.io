@@ -19,11 +19,15 @@ function isSelected(page: string): string {
 
   return `/${page}`;
 }
+
+function ariaCurrent(page: string): "page" | undefined {
+  return props.pageSelected === page ? "page" : undefined;
+}
 ---
 
 <!-- TODO: Add line animation under hovered links -->
 <header id="navbar-header" role="banner" aria-label="Page Header">
-  <nav id="navbar">
+  <nav id="navbar" aria-label="Primary navigation">
     <div id="navbar-title-container">
       <h1 id="navbar-title">
         <a
@@ -45,31 +49,80 @@ function isSelected(page: string): string {
         </script>
       </h1>
     </div>
-    <ul id="navbar-links" class="oswald-text">
+    <ul id="navbar-links" class="oswald-text" aria-label="Navigation Bar Links">
       <li class="navbar-dropdown">
         <a
           class="navbar-dropdown-trigger hover-blue"
           href={isSelected("about-us")}
+          aria-current={ariaCurrent("about-us")}
         >
           About Us
         </a>
-        <ul class="navbar-dropdown-menu">
-          <li><a href={isSelected("about-us/jabs")} class="hover-blue">History</a></li>
-          <li><a href={isSelected("about-us/outreach")} class="hover-blue">Outreach</a></li>
-          <li><a href={isSelected("about-us/updates")} class="hover-blue">Updates</a></li>
+        <ul class="navbar-dropdown-menu" aria-label="About Us pages">
+          <li>
+            <a
+              href={isSelected("about-us/jabs")}
+              class="hover-blue"
+              aria-current={ariaCurrent("about-us/jabs")}
+            >
+              History
+            </a>
+          </li>
+          <li>
+            <a
+              href={isSelected("about-us/outreach")}
+              class="hover-blue"
+              aria-current={ariaCurrent("about-us/outreach")}
+            >
+              Outreach
+            </a>
+          </li>
+          <li>
+            <a
+              href={isSelected("about-us/updates")}
+              class="hover-blue"
+              aria-current={ariaCurrent("about-us/updates")}
+            >
+              Updates
+            </a>
+          </li>
         </ul>
       </li>
       <li class="navbar-dropdown">
-        <a class="navbar-dropdown-trigger hover-blue" href={isSelected("seasons")}>
+        <a
+          class="navbar-dropdown-trigger hover-blue"
+          href={isSelected("seasons")}
+          aria-current={ariaCurrent("seasons")}
+        >
           Seasons
         </a>
-        <ul class="navbar-dropdown-menu">
-          <li><a href={isSelected("seasons/2026")} class="hover-blue">2026</a></li>
-          <li><a href={isSelected("seasons/2025")} class="hover-blue">2025</a></li>
+        <ul class="navbar-dropdown-menu" aria-label="Season archives">
+          <li>
+            <a
+              href={isSelected("seasons/2026")}
+              class="hover-blue"
+              aria-current={ariaCurrent("seasons/2026")}
+            >
+              2026
+            </a>
+          </li>
+          <li>
+            <a
+              href={isSelected("seasons/2025")}
+              class="hover-blue"
+              aria-current={ariaCurrent("seasons/2025")}
+            >
+              2025
+            </a>
+          </li>
         </ul>
       </li>
       <li>
-        <a href={isSelected("donate")} class="hover-blue">
+        <a
+          href={isSelected("donate")}
+          class="hover-blue"
+          aria-current={ariaCurrent("donate")}
+        >
           Support Us
         </a>
       </li>

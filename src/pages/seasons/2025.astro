@@ -3,69 +3,75 @@ import Layout from "@/layouts/Layout.astro";
 ---
 
 <Layout title="2025 Season" description="" selected="seasons/2025">
-    <script>
-        import "@google/model-viewer";
-    </script>
-    <h1>Reefscape</h1>
-    <div class="oswald-text">
-        <h2>Events</h2>
-        <div id="event-bos">
-            <h3>NE District Greater Boston Event</h3>
-        </div>
-        <div id="event-unh">
-            <h3>NE District UNH Event</h3>
-        </div>
-        <div id="event-dcmp">
-            <h3>NE District Championship</h3>
-            <p>Division - Sosik</p>
-        </div>
-        <div id="event-wcmp">
-            <h3>World Championship</h3>
-            <p>Division - Hopper</p>
-        </div>
+  <script>
+    import "@google/model-viewer";
+  </script>
+  <h1>Reefscape</h1>
+  <div class="oswald-text">
+    <h2>Events</h2>
+    <div id="event-bos">
+      <h3>NE District Greater Boston Event</h3>
     </div>
-    <div id="robot-container">
-        <div id="robot-desc" class="oswald-text">
-            <h2>Our 2025 Robot - Poseidon</h2>
-            <p>
-                Our 2025 robot, poseidon, was designed with one goal - being as simple as possible, while being able to 
-            </p>
-        </div>
-        <model-viewer id="poseidon-model" src="/robot-models/poseidon.glb" camera-controls shadow-intensity="2" exposure="1" />
+    <div id="event-unh">
+      <h3>NE District UNH Event</h3>
     </div>
-    <div class="oswald-text">
-        <h2>Offseason Events</h2>
-        <ul>
-            <li>Mayhem In Merrimack</li>
-            <li>BattleCry @ WPI</li>
-            <li>NH Governor's Cup</li>
-            <li>River Rage</li>
-            <li>Battle of the Bay</li>
-            <li>Girls Behind the Glass</li>
-        </ul>
+    <div id="event-dcmp">
+      <h3>NE District Championship</h3>
+      <p>Division - Sosik</p>
     </div>
-    <style>
-        #robot-container {
-            width: 100%;
-            display: flex;
-        }
+    <div id="event-wcmp">
+      <h3>World Championship</h3>
+      <p>Division - Hopper</p>
+    </div>
+  </div>
+  <div id="robot-container">
+    <div id="robot-desc" class="oswald-text">
+      <h2>Our 2025 Robot - Poseidon</h2>
+      <p>
+        Our 2025 robot, poseidon, was designed with one goal - being as simple
+        as possible, while being able to
+      </p>
+    </div>
+    <model-viewer
+      id="poseidon-model"
+      src="/robot-models/poseidon.glb"
+      camera-controls
+      shadow-intensity="2"
+      exposure="1"></model-viewer>
+  </div>
+  <div class="oswald-text">
+    <h2>Offseason Events</h2>
+    <ul>
+      <li>Mayhem In Merrimack</li>
+      <li>BattleCry @ WPI</li>
+      <li>NH Governor's Cup</li>
+      <li>River Rage</li>
+      <li>Battle of the Bay</li>
+      <li>Girls Behind the Glass</li>
+    </ul>
+  </div>
+  <style>
+    #robot-container {
+      width: 100%;
+      display: flex;
+    }
 
-        #robot-desc {
-            width: 50%;
-            height: 100%;
-            display: flex;
-            flex-direction: column;
-            justify-items: space-around;
-            align-items: center;
-        }
-        
-        #poseidon-model {
-            width: 50%;
-            height: auto;
-            aspect-ratio: 6 / 5;
-            border: 1px solid white;
+    #robot-desc {
+      width: 50%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-items: space-around;
+      align-items: center;
+    }
 
-            background-color: var(--bg);
-        }
-    </style>
+    #poseidon-model {
+      width: 50%;
+      height: auto;
+      aspect-ratio: 6 / 5;
+      border: 1px solid white;
+
+      background-color: var(--bg);
+    }
+  </style>
 </Layout>

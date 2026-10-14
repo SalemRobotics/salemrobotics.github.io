@@ -22,8 +22,8 @@ interface Props {
 
 <script>
   document.querySelectorAll(".marquee").forEach((marquee) => {
-    const group = marquee.querySelector(".marquee-group");
-    const track = marquee.querySelector(".marquee-track");
+    const group = marquee.querySelector(".marquee-group") as HTMLElement;
+    const track = marquee.querySelector(".marquee-track") as HTMLElement;
 
     const width = group.offsetWidth;
     const pixelsPerSecond = 80;

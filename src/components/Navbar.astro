@@ -25,24 +25,52 @@ function isSelected(page: string): string {
 <header id="navbar-header" role="banner" aria-label="Page Header">
   <nav id="navbar">
     <div id="navbar-title-container">
-      <a href={isSelected("")} id="navbar-title">
-        <h1 class="devil-bauer hover-blue">The Blue Devils</h1>
-      </a>
+      <h1 id="navbar-title">
+        <a
+          id="navbar-title-anchor"
+          href={isSelected("")}
+          class="devil-bauer bd-blue"
+        >
+          The Blue Devils
+        </a>
+        <script is:inline>
+          const link = document.getElementById("navbar-title-anchor");
+          const currentMonth = new Date().getMonth();
+
+          /* Month is zero-based; June (as the sixth month) is 5. */
+          if (currentMonth == 5) {
+            link.classList.remove("bd-blue");
+            link.classList.add("progress-flag-text");
+          }
+        </script>
+      </h1>
     </div>
     <ul id="navbar-links" class="oswald-text">
-      <li>
-        <a href="/#outreach">
-          <h3 class="hover-blue">Outreach</h3>
+      <li class="navbar-dropdown">
+        <a
+          class="navbar-dropdown-trigger hover-blue"
+          href={isSelected("about-us")}
+        >
+          About Us
         </a>
+        <ul class="navbar-dropdown-menu">
+          <li><a href={isSelected("about-us/jabs")} class="hover-blue">History</a></li>
+          <li><a href={isSelected("about-us/outreach")} class="hover-blue">Outreach</a></li>
+          <li><a href={isSelected("about-us/updates")} class="hover-blue">Updates</a></li>
+        </ul>
+      </li>
+      <li class="navbar-dropdown">
+        <a class="navbar-dropdown-trigger hover-blue" href={isSelected("seasons")}>
+          Seasons
+        </a>
+        <ul class="navbar-dropdown-menu">
+          <li><a href={isSelected("seasons/2026")} class="hover-blue">2026</a></li>
+          <li><a href={isSelected("seasons/2025")} class="hover-blue">2025</a></li>
+        </ul>
       </li>
       <li>
-        <a href={isSelected("updates")}>
-          <h3 class="hover-blue">Updates</h3>
-        </a>
-      </li>
-      <li>
-        <a href={isSelected("donate")}>
-          <h3 class="hover-blue">Support Us</h3>
+        <a href={isSelected("donate")} class="hover-blue">
+          Support Us
         </a>
       </li>
     </ul>
@@ -56,7 +84,7 @@ function isSelected(page: string): string {
 
   .hover-blue:hover,
   .hover-blue:focus-within {
-    color: var(--bd-blue);
+    color: var(--bd-blue) !important;
   }
 
   #navbar-header {
@@ -76,7 +104,6 @@ function isSelected(page: string): string {
     height: 10vh;
     align-items: center;
 
-    & h3,
     & h1 {
       margin: 0;
     }
@@ -88,18 +115,12 @@ function isSelected(page: string): string {
 
   #navbar-title-container {
     width: 35%;
-    height: fit-content;
-  }
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
-  #navbar-title {
-    width: 100%;
-    color: var(--bd-blue);
-    text-decoration: none;
-    height: fit-content;
-
-    & > h1 {
-      width: 100%;
-      text-align: center;
+    & h1 {
+      display: flex;
     }
   }
 
@@ -109,11 +130,100 @@ function isSelected(page: string): string {
     flex-direction: row;
     justify-content: space-around;
     list-style: none;
+    padding: 0;
+    margin: 0;
 
     & > li > a {
       color: black;
-      font-size: 1.4rem;
+      font-size: 1.65rem;
+      font-weight: bold;
     }
+  }
+
+  .navbar-dropdown {
+    position: relative;
+  }
+
+  .navbar-dropdown-trigger {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: black;
+    text-decoration: none;
+
+    &::after {
+      width: 0.45rem;
+      height: 0.45rem;
+      border-right: 2px solid currentColor;
+      border-bottom: 2px solid currentColor;
+      content: "";
+      transform: translateY(-0.12rem) rotate(45deg);
+      transition: transform 0.3s ease-in-out;
+    }
+
+    &:focus-visible {
+      outline: 3px solid var(--bd-blue);
+      outline-offset: 4px;
+      border-radius: 2px;
+    }
+  }
+
+  .navbar-dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    z-index: 1;
+    min-width: 10rem;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    background: white;
+    border: 1px solid #d0d0d0;
+    border-radius: 4px;
+    box-shadow: 0 4px 12px rgb(0 0 0 / 18%);
+    visibility: hidden;
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(-0.25rem);
+    transition:
+      opacity 0.2s ease-in-out,
+      transform 0.2s ease-in-out,
+      visibility 0.2s ease-in-out;
+
+    & a {
+      display: block;
+      padding: 0.65rem 1rem;
+      color: black;
+      font-size: 1.2rem;
+      text-decoration: none;
+      white-space: nowrap;
+      transition:
+        color 0.2s ease-in-out,
+        background-color 0.2s ease-in-out;
+    }
+
+    & a:hover,
+    & a:focus-visible {
+      background-color: #f0f3fa;
+    }
+
+    & a:focus-visible {
+      outline: 3px solid var(--bd-blue);
+      outline-offset: -3px;
+    }
+  }
+
+  .navbar-dropdown:hover .navbar-dropdown-menu,
+  .navbar-dropdown:focus-within .navbar-dropdown-menu {
+    visibility: visible;
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0);
+  }
+
+  .navbar-dropdown:hover .navbar-dropdown-trigger::after,
+  .navbar-dropdown:focus-within .navbar-dropdown-trigger::after {
+    transform: translateY(0.12rem) rotate(225deg);
   }
 
   @media (max-width: 600px) {
@@ -127,106 +237,6 @@ function isSelected(page: string): string {
 
     #navbar-links {
       display: none;
-    }
-  }
-
-  .dropdown {
-    position: relative;
-    transform: translateY(0);
-    transition: transform 0.4s ease-in-out;
-  }
-
-  .dropdown-caret::before {
-    content: "▴";
-    display: inline-block;
-    font-size: 1.1em;
-    margin-left: 0.25ch;
-    transition: transform 0.4s ease-in-out;
-  }
-
-  .dropdown-content {
-    position: absolute;
-    top: 105%;
-    left: 50%;
-    transform: translate(-50%, -0.5vh);
-    width: max-content;
-    min-width: fit-content;
-    margin: 0;
-    padding: 0;
-    list-style: none;
-    opacity: 0;
-    visibility: hidden;
-    overflow: hidden;
-
-    border: 1px solid var(--bg);
-    border-radius: 0.5rem;
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
-
-    transition:
-      opacity 0.4s ease-in-out,
-      transform 0.4s ease-in-out,
-      visibility 0.4s ease-in-out;
-  }
-
-  .dropdown-content li {
-    margin: 0;
-    padding: 5px 10px;
-    text-align: center;
-    white-space: nowrap;
-    border-bottom: 1px solid var(--bg);
-    transition: background-color 0.2s ease-in-out;
-  }
-
-  .dropdown-content li:last-child {
-    border-bottom: none;
-  }
-
-  @media (prefers-color-scheme: light) {
-    .dropdown-content {
-      background-color: var(--dark-bg);
-    }
-    .dropdown-content li > a {
-      color: var(--dark-text);
-    }
-  }
-
-  @media (prefers-color-scheme: dark) {
-    .dropdown-content {
-      background-color: var(--light-bg);
-    }
-    .dropdown-content li > a {
-      color: var(--light-text);
-    }
-  }
-
-  .dropdown:hover,
-  .dropdown:focus-within {
-    transform: translateY(-0.5vh);
-  }
-  .dropdown:hover .dropdown-caret::before,
-  .dropdown:focus-within .dropdown-caret::before {
-    transform: rotate(180deg);
-  }
-
-  .dropdown:hover .dropdown-content,
-  .dropdown:focus-within .dropdown-content {
-    opacity: 1;
-    visibility: visible;
-    transform: translate(-50%, 0);
-    transition:
-      opacity 0.3s ease-in-out,
-      transform 0.3s ease-in-out,
-      visibility 0.3s ease-in-out;
-  }
-
-  @media (prefers-color-scheme: light) {
-    .dropdown-content li:hover {
-      background-color: #1f1f1f;
-    }
-  }
-  @media (prefers-color-scheme: dark) {
-    .dropdown-content li:hover {
-      background-color: #d3cfcf;
     }
   }
 </style>

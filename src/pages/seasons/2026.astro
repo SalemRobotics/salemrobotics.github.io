@@ -1,0 +1,21 @@
+---
+import Layout from "@/layouts/Layout.astro";
+
+
+---
+
+<Layout title="2026 Season" description="" selected="seasons/2026">
+    <script>
+        import "@google/model-viewer";
+    </script>
+
+    <div id="robot-container">
+        <div id="robot-desc" class="oswald-text">
+            <h2>Our 2026 Robot - Osiris</h2>
+            <p>
+                Our 2026 robot, osiris
+            </p>
+        </div>
+        <model-viewer id="osiris-model" src="/robot-models/osiris.glb" camera-controls shadow-intensity="2" exposure="1" />
+    </div>
+</Layout>
